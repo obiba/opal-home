@@ -17,9 +17,9 @@ Opal home for developpers: control your execution environnement outside of opal 
 
 ## Update a sub-project
 
-For instance, a change was made in opal-server:
+For instance, a change was made in opal-core-ws:
 
-1. make opal p=opal-server
+1. make opal p=opal-core-ws
 2. make launch
 
 If magma is also in development:
