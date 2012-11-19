@@ -27,7 +27,7 @@ launch:
 
 conf:
 	rm -rf conf data work logs
-	cp -r ${opal_project}/opal-server/target/opal-server-${version}/conf .
+	cp -r ${opal_project}/opal-server/src/main/conf .
 
 opal:
 	cd ${opal_project}/${p} && \
