@@ -1,9 +1,14 @@
-magma_project=$(HOME)/projects/magma
-opal_project=$(HOME)/projects/opal
+#
+# Makefile for Opal developpers
+#
+projects=$(HOME)/projects
 version=1.11-SNAPSHOT
 magma_version=1.3-SNAPSHOT
 java_opts="-Xmx1G -XX:MaxPermSize=256M"
-opal_home=$(HOME)/opal-home
+
+opal_project=${projects}/opal
+magma_project=${projects}/magma
+opal_home=${projects}/opal-home
 
 all: compile server
 
