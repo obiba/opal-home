@@ -38,6 +38,9 @@ launch-debug:
 	sed -i 's/^java $$JAVA_OPTS/java $$JAVA_OPTS $$JAVA_DEBUG/g' ${opal_project}/opal-server/target/opal-server-${version}/bin/opal && \
 	${opal_project}/opal-server/target/opal-server-${version}/bin/opal --upgrade
 
+launch-R:
+	R CMD Rserve --vanilla
+
 conf:
 	rm -rf conf data work logs
 	cp -r ${opal_project}/opal-server/src/main/conf .
