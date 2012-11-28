@@ -13,7 +13,7 @@ Opal home for developpers: control your execution environnement outside of opal 
 ## Start Opal
 
 	1. Ensure set-up was done (compilation and configuration).
-	2. make launch
+	2. make launch (or launch-debug for remote debugging)
 
 ## Update a sub-project
 
@@ -24,7 +24,7 @@ For instance, a change was made in opal-core-ws:
 
 If magma is also in development:
 
-	1. make magma p=datasource-csv
+	1. make magma p=datasource-csv (or make magma-hibernate for hibernate module)
 	2. make launch
 
 ## Other Makefile targets

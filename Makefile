@@ -28,6 +28,7 @@ launch:
 	cd ${opal_home} && \
 	export OPAL_HOME=${opal_home} && \
 	export JAVA_OPTS=${java_opts} && \
+	sed -i 's/^java $$JAVA_OPTS $$JAVA_DEBUG/java $$JAVA_OPTS/g' ${opal_project}/opal-server/target/opal-server-${version}/bin/opal && \
 	${opal_project}/opal-server/target/opal-server-${version}/bin/opal --upgrade
 
 launch-debug:
