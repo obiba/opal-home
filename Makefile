@@ -10,6 +10,9 @@ opal_project=${projects}/opal
 magma_project=${projects}/magma
 opal_home=${projects}/opal-home
 
+skipTests=false
+mvn_exec=mvn -Dmaven.test.skip=${skipTests}
+
 #
 # Compile Opal and prepare Opal server
 #
@@ -20,7 +23,7 @@ all: compile server
 #
 compile:
 	cd ${opal_project} && \
-	mvn clean install
+	${mvn_exec} clean install
 
 #
 # Update Opal source code
@@ -62,7 +65,7 @@ launch-debug:
 #
 launch-gwt:
 	cd ${opal_project}/opal-gwt-client && \
-	mvn gwt:run
+	${mvn_exec} gwt:run
 
 #
 # Launch Rserve daemon
@@ -88,7 +91,7 @@ conf:
 #
 opal:
 	cd ${opal_project}/${p} && \
-	mvn clean install && \
+	${mvn_exec} clean install && \
 	cp target/${p}-${version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
@@ -103,7 +106,7 @@ magma-update:
 #
 magma:
 	cd ${magma_project}/${p} && \
-	mvn clean install && \
+	${mvn_exec} clean install && \
 	cp target/magma-${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
@@ -111,7 +114,7 @@ magma:
 #
 magma-hibernate:
 	cd ${magma_project}/hibernate && \
-	mvn clean install && \
+	${mvn_exec} clean install && \
 	cp hibernate-audit/target/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
 	cp hibernate-common/target/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
 	cp hibernate-datasource/target/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
