@@ -16,7 +16,7 @@ mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 #
 # Compile Opal and prepare Opal server
 #
-all: compile server
+all: compile server python-client
 
 #
 # Compile Opal
@@ -38,6 +38,14 @@ update:
 server:
 	cd ${opal_project}/opal-server/target && \
 	unzip opal-server-${version}-dist.zip
+
+#
+# Unzip Python client
+#
+python-client:
+	cd ${opal_project}/opal-python-client/target && \
+	unzip opal-python_${version}.zip && \
+	chmod +x opal-python/bin/opal.py
 
 #
 # Launch Opal
@@ -78,6 +86,13 @@ launch-Rserve:
 #
 launch-R:
 	R --vanilla < ${R}
+
+#
+# Execute Python client
+#
+launch-python:
+	cd ${opal_project}/opal-python-client/target/opal-python/bin && \
+	./opal.py ${args}
 
 #
 # Install Opal conf directory
