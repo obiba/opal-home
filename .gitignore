@@ -2,3 +2,5 @@ conf/
 data/
 logs/
 work/
+*.sql
+opal.py

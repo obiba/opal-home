@@ -13,6 +13,11 @@ opal_home=${projects}/opal-home
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 
+mysql_root=root
+mysql_password=1234
+opal_db=opal_dev
+key_db=key_dev
+
 #
 # Compile Opal and prepare Opal server
 #
@@ -139,3 +144,27 @@ magma-hibernate:
 #
 log:
 	tail -f logs/opal.log
+
+#
+# Dump MySQL databases
+#
+sql-dump: sql-opal-dump sql-key-dump
+
+sql-opal-dump:
+	mysqldump -u $(mysql_root) --password=$(mysql_password) --hex-blob --max_allowed_packet=1G $(opal_db) > $(opal_db)_$(version)_dump.sql
+	
+sql-key-dump:
+	mysqldump -u $(mysql_root) --password=$(mysql_password) $(key_db) > $(key_db)_$(version)_dump.sql
+
+#
+# Drop databases and import SQL dump
+#
+sql-import: sql-opal-import sql-key-import
+
+sql-opal-import:
+	mysql -u $(mysql_root) --password=$(mysql_password) -e "drop database `$(opal_db)`; create database `$(opal_db)`;" && \
+	mysql -u $(mysql_root) --password=$(mysql_password) `$(opal_db)` < $(opal_db)_$(version)_dump.sql
+	
+sql-key-import:
+	mysql -u $(mysql_root) --password=$(mysql_password) -e "drop database `$(key_db)`; create database `$(key_db)`;" && \
+	mysql -u $(mysql_root) --password=$(mysql_password) `$(key_db)` < $(key_db)_$(version)_dump.sql
