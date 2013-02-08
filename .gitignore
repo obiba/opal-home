@@ -4,3 +4,4 @@ logs/
 work/
 *.sql
 opal.py
+.idea/
