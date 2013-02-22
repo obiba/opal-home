@@ -5,3 +5,5 @@ work/
 *.sql
 opal.py
 .idea/
+fs/tmp/
+export/
