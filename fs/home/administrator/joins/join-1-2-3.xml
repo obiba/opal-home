@@ -1,0 +1,30 @@
+<org.obiba.magma.views.View>
+  <name>join-1-2-3</name>
+  <from class="org.obiba.magma.views.JoinTable">
+    <list>
+      <table class="org.obiba.magma.support.ValueTableReference">
+        <reference>join.join-src-1</reference>
+      </table>
+      <table class="org.obiba.magma.support.ValueTableReference">
+        <reference>join.join-src-2</reference>
+      </table>
+      <table class="org.obiba.magma.support.ValueTableReference">
+        <reference>join.join-src-3</reference>
+      </table>
+    </list>
+  </from>
+  <select class="org.obiba.magma.views.support.NoneClause"/>
+  <where class="org.obiba.magma.views.support.AllClause"/>
+  <variables class="org.obiba.magma.js.views.VariablesClause">
+    <variables class="linked-hash-set">
+      <variable name="VAR1" valueType="text" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="label" valueType="text" locale="en">VAR1 - text</attribute>
+          <attribute name="script" valueType="text">$(&apos;VAR1&apos;)</attribute>
+        </attributes>
+      </variable>
+    </variables>
+  </variables>
+  <created valueType="datetime">2013-03-05T15:10:03.885-0500</created>
+  <updated valueType="datetime">2013-03-05T15:11:45.913-0500</updated>
+</org.obiba.magma.views.View>
