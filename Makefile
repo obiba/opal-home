@@ -129,6 +129,9 @@ magma:
 	${mvn_exec} clean install && \
 	cp target/magma-${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
+#
+# Compile and install all Magma sub-projects
+#
 magma-all:
 	cd ${magma_project} && \
 	${mvn_exec} clean install && \
