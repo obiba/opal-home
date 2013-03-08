@@ -129,6 +129,25 @@ magma:
 	${mvn_exec} clean install && \
 	cp target/magma-${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
+magma-all:
+	cd ${magma_project} && \
+	${mvn_exec} clean install && \
+	cp api/target/magma-api-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp beans/target/magma-beans-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp crypt/target/magma-crypt-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp datasource-limesurvey/target/magma-datasource-limesurvey-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp datasource-null/target/magma-datasource-null-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp datasource-spss/target/magma-datasource-spss-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp filter/target/magma-filter-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp hibernate/hibernate-audit/target/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp hibernate/hibernate-common/target/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp hibernate/hibernate-datasource/target/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp integration/target/magma-integration-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp js/target/magma-js-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp math/target/magma-math-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp security/target/magma-security-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp spring/target/magma-spring-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+
 #
 # Compile and install a Magma Hibernate sub-projects
 #
