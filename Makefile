@@ -81,6 +81,13 @@ launch-gwt:
 	${mvn_exec} gwt:run
 
 #
+# Launch Opal GWT in debug mode (port 8001)
+#
+launch-gwt-debug:
+	cd ${opal_project}/opal-gwt-client && \
+	${mvn_exec} gwt:debug -Dgwt.debugPort=8001
+
+#
 # Launch Rserve daemon
 #
 launch-Rserve:
