@@ -2,8 +2,8 @@
 ## Makefile for Opal developpers
 ##
 projects=$(HOME)/projects
-version=1.13-SNAPSHOT
-magma_version=1.5-SNAPSHOT
+version=1.14-SNAPSHOT
+magma_version=1.6-SNAPSHOT
 java_opts="-Xmx1G -XX:MaxPermSize=256M"
 
 opal_project=${projects}/opal
@@ -21,14 +21,28 @@ key_db=key_dev
 #
 # Compile Opal and prepare Opal server
 #
-all: compile server python-client
+all: clean compile server python-client
+
+#
+# Clean Opal
+#
+clean:
+	cd ${opal_project} && \
+	${mvn_exec} clean
 
 #
 # Compile Opal
 #
 compile:
 	cd ${opal_project} && \
-	${mvn_exec} clean install
+	${mvn_exec} install
+
+#
+# Compile Opal without compiling GWT
+#
+compile-no-gwt:
+	cd ${opal_project} && \
+	${mvn_exec} install -Dgwt.compiler.skip=true
 
 #
 # Update Opal source code
@@ -173,6 +187,18 @@ magma-hibernate:
 #
 log:
 	tail -f logs/opal.log
+
+#
+# Delete all log files
+#
+clear-log:
+	rm logs/*
+
+#
+# Delete ES indexes
+#
+clear-data:
+	rm data/*
 
 #
 # Dump MySQL databases
