@@ -4,10 +4,12 @@
 projects=$(HOME)/projects
 version=1.14-SNAPSHOT
 magma_version=1.6-SNAPSHOT
+commons_version=1.4-SNAPSHOT
 java_opts="-Xmx1G -XX:MaxPermSize=256M"
 
 opal_project=${projects}/opal
 magma_project=${projects}/magma
+commons_project=${projects}/obiba-commons
 opal_home=${projects}/opal-home
 
 skipTests=false
@@ -183,6 +185,16 @@ magma-hibernate:
 	cp hibernate-datasource/target/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
+# Compile and install all Commons sub-projects
+#
+commons:
+	cd ${commons_project} && \
+	${mvn_exec} clean install && \
+	cp obiba-core/target/obiba-core-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp obiba-security/target/obiba-security-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+
+
+#
 # Tail Opal log file
 #
 log:
@@ -198,7 +210,7 @@ clear-log:
 # Delete ES indexes
 #
 clear-data:
-	rm data/*
+	rm -rf data/*
 
 #
 # Dump MySQL databases
