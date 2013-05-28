@@ -2,8 +2,8 @@
 ## Makefile for Opal developpers
 ##
 projects=$(HOME)/projects
-version=1.14-SNAPSHOT
-magma_version=1.6-SNAPSHOT
+version=1.15-SNAPSHOT
+magma_version=1.7-SNAPSHOT
 commons_version=1.4-SNAPSHOT
 java_opts="-Xmx1G -XX:MaxPermSize=256M"
 
@@ -14,6 +14,7 @@ opal_home=${projects}/opal-home
 
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
+gradle_exec=${magma_project}/gradlew
 
 mysql_root=root
 mysql_password=1234
@@ -149,40 +150,40 @@ magma-update:
 #
 magma:
 	cd ${magma_project}/${p} && \
-	${mvn_exec} clean install && \
-	cp target/magma-${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+	${gradle_exec} install && \
+	cp target/libs/${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install all Magma sub-projects
 #
 magma-all:
 	cd ${magma_project} && \
-	${mvn_exec} clean install && \
-	cp api/target/magma-api-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp beans/target/magma-beans-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp crypt/target/magma-crypt-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp datasource-limesurvey/target/magma-datasource-limesurvey-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp datasource-null/target/magma-datasource-null-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp datasource-spss/target/magma-datasource-spss-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp filter/target/magma-filter-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp hibernate/hibernate-audit/target/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp hibernate/hibernate-common/target/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp hibernate/hibernate-datasource/target/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp integration/target/magma-integration-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp js/target/magma-js-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp math/target/magma-math-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp security/target/magma-security-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp spring/target/magma-spring-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+	${gradle_exec} install && \
+	cp magma-api/target/libs/magma-api-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-beans/target/libs/magma-beans-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-crypt/target/libs/magma-crypt-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-datasource-limesurvey/target/libs/magma-datasource-limesurvey-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-datasource-null/target/libs/magma-datasource-null-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-datasource-spss/target/libs/magma-datasource-spss-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-filter/target/libs/magma-filter-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-hibernate/magma-hibernate-audit/target/libs/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-hibernate/magma-hibernate-common/target/libs/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-hibernate/magma-hibernate-datasource/target/libs/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-integration/target/libs/magma-integration-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-js/target/libs/magma-js-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-math/target/libs/magma-math-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-security/target/libs/magma-security-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-spring/target/libs/magma-spring-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install a Magma Hibernate sub-projects
 #
 magma-hibernate:
 	cd ${magma_project}/hibernate && \
-	${mvn_exec} clean install && \
-	cp hibernate-audit/target/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp hibernate-common/target/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp hibernate-datasource/target/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+	${gradle_exec} install && \
+	cp magma-hibernate-audit/target/libs/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-hibernate-common/target/libs/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp magma-hibernate-datasource/target/libs/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install all Commons sub-projects
