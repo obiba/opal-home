@@ -24,7 +24,7 @@ key_db=key_dev
 #
 # Compile Opal and prepare Opal server
 #
-all: clean compile server python-client
+all: clean compile server
 
 #
 # Clean Opal
@@ -66,8 +66,7 @@ server:
 #
 python-client:
 	cd ${opal_project}/opal-python-client/target && \
-	unzip opal-python_${version}.zip && \
-	chmod +x opal-python/bin/opal.py
+	chmod +x opal-python/bin/scripts/opal
 
 #
 # Launch Opal
@@ -121,7 +120,7 @@ launch-R:
 #
 launch-python:
 	cd ${opal_project}/opal-python-client/target/opal-python/bin && \
-	./opal.py ${args}
+	./scripts/opal ${args}
 
 #
 # Install Opal conf directory
