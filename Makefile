@@ -62,13 +62,6 @@ server:
 	unzip opal-server-${version}-dist.zip
 
 #
-# Unzip Python client
-#
-python-client:
-	cd ${opal_project}/opal-python-client/target && \
-	chmod +x opal-python/bin/scripts/opal
-
-#
 # Launch Opal
 #
 launch:
