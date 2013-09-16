@@ -190,7 +190,7 @@ clear-log:
 # Delete ES indexes
 #
 clear-data:
-	rm -rf data/*
+	rm -rf data/opal/*
 
 #
 # Dump MySQL databases
