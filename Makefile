@@ -38,7 +38,7 @@ clean:
 #
 compile:
 	cd ${opal_project} && \
-	${mvn_exec} install
+	${mvn_exec} -U install
 
 #
 # Compile Opal without compiling GWT
@@ -151,8 +151,8 @@ magma:
 magma-all:
 	cd ${magma_project} && \
 	${gradle_exec} install && \
-	rm ${opal_project}/opal-server/target/opal-server-${version}/lib/magma-* && \
-	cp `find . -type f | grep jar$$ ` ${opal_project}/opal-server/target/opal-server-${version}/lib
+	find ${opal_project}/opal-server/target/opal-server-${version}/lib -type f | grep magma | grep -v health-canada | grep -v geonames | xargs rm && \
+	cp `find . -type f | grep jar$$ | grep -v sources | grep -v javadoc` ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install a Magma Hibernate sub-projects
