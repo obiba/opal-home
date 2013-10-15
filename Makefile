@@ -191,6 +191,12 @@ clear-log:
 #
 clear-data:
 	rm -rf data/opal/*
+	
+clear-config:
+	rm -rf data && \
+	rm -rf conf && \
+	rm -rf logs && \
+	rm -rf work
 
 #
 # Dump MySQL databases
