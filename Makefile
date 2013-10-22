@@ -15,6 +15,7 @@ opal_home=${projects}/opal-home
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 gradle_exec=${magma_project}/gradlew
+orientdb_version=1.5.1
 
 mysql_root=root
 mysql_password=1234
@@ -221,3 +222,18 @@ sql-opal-import:
 sql-key-import:
 	mysql -u $(mysql_root) --password=$(mysql_password) -e "drop database `$(key_db)`; create database `$(key_db)`;" && \
 	mysql -u $(mysql_root) --password=$(mysql_password) `$(key_db)` < $(key_db)_$(version)_dump.sql
+
+download-orientdb:
+	mkdir -p work && \
+	cd work && \
+	wget https://s3.amazonaws.com/orientdb/releases/orientdb-$(orientdb_version).zip && \
+	unzip orientdb-$(orientdb_version).zip && \
+	rm orientdb-$(orientdb_version).zip && \
+	chmod a+x orientdb-$(orientdb_version)/bin/*.sh
+
+orientdb-console:
+	@echo
+	@echo "To connect to Opal OrientDB:"
+	@echo "  connect remote:localhost:2424/opal-config admin admin"
+	@echo
+	@./work/orientdb-$(orientdb_version)/bin/console.sh
