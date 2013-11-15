@@ -226,7 +226,7 @@ sql-key-import:
 download-orientdb:
 	mkdir -p work && \
 	cd work && \
-	wget https://s3.amazonaws.com/orientdb/releases/orientdb-$(orientdb_version).zip && \
+	wget http://www.orientdb.org/portal/function/portal/download/unknown/-/-/-/-/-/orientdb-graphed-$(orientdb_version).zip && \
 	unzip orientdb-$(orientdb_version).zip && \
 	rm orientdb-$(orientdb_version).zip && \
 	chmod a+x orientdb-$(orientdb_version)/bin/*.sh
