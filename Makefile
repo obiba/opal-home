@@ -226,14 +226,15 @@ sql-key-import:
 download-orientdb:
 	mkdir -p work && \
 	cd work && \
-	wget http://www.orientdb.org/portal/function/portal/download/unknown/-/-/-/-/-/orientdb-graphed-$(orientdb_version).zip && \
-	unzip orientdb-$(orientdb_version).zip && \
-	rm orientdb-$(orientdb_version).zip && \
+	wget http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/%20/%20/%20/%20/unknown/orientdb-community-$(orientdb_version).tar.gz && \
+	mkdir orientdb-$(orientdb_version) && \
+	tar -zxvf orientdb-community-$(orientdb_version).tar.gz -C orientdb-$(orientdb_version) && \
+	rm orientdb-community-$(orientdb_version).tar.gz && \
 	chmod a+x orientdb-$(orientdb_version)/bin/*.sh
 
-orientdb-console:
+orientdb-console:	
 	@echo
 	@echo "To connect to Opal OrientDB:"
 	@echo "  connect remote:localhost:2424/opal-config admin admin"
-	@echo
-	@./work/orientdb-$(orientdb_version)/bin/console.sh
+	@echo	
+	@cd work/orientdb-$(orientdb_version)/bin && ./console.sh
