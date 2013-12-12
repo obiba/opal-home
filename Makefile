@@ -114,6 +114,8 @@ launch-R:
 #
 launch-python:
 	cd ${opal_project}/opal-python-client/target/opal-python/bin && \
+	chmod +x ./scripts/opal && \
+	export PYTHONPATH=${opal_project}/opal-python-client/target/opal-python/bin && \
 	./scripts/opal ${args}
 
 #
