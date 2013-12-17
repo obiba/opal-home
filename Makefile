@@ -15,7 +15,7 @@ opal_home=${projects}/opal-home
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 gradle_exec=${magma_project}/gradlew
-orientdb_version=1.6.1
+orientdb_version=1.6.2
 
 mysql_root=root
 mysql_password=1234
@@ -229,14 +229,14 @@ download-orientdb:
 	mkdir -p work && \
 	cd work && \
 	wget http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/%20/%20/%20/%20/unknown/orientdb-community-$(orientdb_version).tar.gz && \
-	mkdir orientdb-$(orientdb_version) && \
-	tar -zxvf orientdb-community-$(orientdb_version).tar.gz -C orientdb-$(orientdb_version) && \
+	mkdir orientdb-community-$(orientdb_version) && \
+	tar -zxvf orientdb-community-$(orientdb_version).tar.gz && \
 	rm orientdb-community-$(orientdb_version).tar.gz && \
-	chmod a+x orientdb-$(orientdb_version)/bin/*.sh
+	chmod a+x orientdb-community-$(orientdb_version)/bin/*.sh
 
-orientdb-console:	
+orientdb-console:
 	@echo
 	@echo "To connect to Opal OrientDB:"
 	@echo "  connect remote:localhost:2424/opal-config admin admin"
-	@echo	
-	@cd work/orientdb-$(orientdb_version)/bin && ./console.sh
+	@echo
+	@cd work/orientdb-community-$(orientdb_version)/bin && ./console.sh
