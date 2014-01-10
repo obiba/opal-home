@@ -238,5 +238,7 @@ orientdb-console:
 	@echo
 	@echo "To connect to Opal OrientDB:"
 	@echo "  connect remote:localhost:2424/opal-config admin admin"
+	@echo "or"
+	@echo "  connect local:$(opal_home)/data/orientdb/opal-config admin admin"
 	@echo
 	@cd work/orientdb-community-$(orientdb_version)/bin && ./console.sh
