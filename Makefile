@@ -15,7 +15,7 @@ opal_home=${projects}/opal-home
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 gradle_exec=${magma_project}/gradlew
-orientdb_version=1.6.2
+orientdb_version=1.6.3
 
 mysql_root=root
 mysql_password=1234
