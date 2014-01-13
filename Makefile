@@ -122,8 +122,9 @@ launch-python:
 # Install Opal conf directory
 #
 conf:
-	rm -rf conf data work logs
-	cp -r ${opal_project}/opal-server/src/main/conf .
+	rm -rf conf data work logs && \
+	cp -r ${opal_project}/opal-server/src/main/conf . && \
+	cp -r ${opal_project}/opal-server/src/main/data .
 
 #
 # Compile and install a Opal sub-project
