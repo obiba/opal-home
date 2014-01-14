@@ -1,0 +1,24 @@
+#
+# Source this file before generating the report.
+# http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/
+#
+
+#
+# custom.css file is expected to be in the same directory as the input file.
+#
+#options(rstudio.markdownToHTML = 
+#  function(inputFile, outputFile) {      
+#    require(markdown)
+#    markdownToHTML(inputFile, outputFile, stylesheet='custom.css')   
+#  }
+#)
+
+#
+# https://github.com/jimhester/knitrBootstrap
+#
+options(rstudio.markdownToHTML =
+  function(inputFile, outputFile) {
+    require(knitrBootstrap)
+    knit_bootstrap_md(input=inputFile, output=outputFile)
+  }
+)

@@ -10,7 +10,7 @@ This is an example of how to use **knitr** for producing a data dictionary on da
 url <- "https://localhost:8443"
 username <- "administrator"
 password <- "password"
-datasource <- "onyx"
+datasource <- "alberta"
 table <- "StandingHeight"
 withStatistics <- TRUE
 ```
