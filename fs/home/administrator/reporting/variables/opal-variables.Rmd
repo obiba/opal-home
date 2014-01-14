@@ -2,24 +2,45 @@
 
 This is an example of how to use **knitr** for producing a data dictionary on data stored in [Opal](http://wiki.obiba.org/display/OPALDOC).
 
-```{r echo=FALSE,message=FALSE}
+```{r echo=FALSE,message=FALSE,results='hide'}
+#
+# Global settings
+#
+#url <- "http://demo.obiba.org:8080"
+url <- "http://localhost:8080"
+username <- "administrator"
+password <- "password"
+datasource <- "onyx"
+table <- "StandingHeight"
+withStatistics <- TRUE
+```
+
+```{r echo=FALSE,message=FALSE,results='hide'}
+# set up dictionary and data
 library(opal)
-o <- opal.login('administrator', 'password', 'http://demo.obiba.org:8080')
+o <- opal.login(username, password, url)
+variables <- opal.variables(o, datasource, table)
+t <- opal.table(o, datasource, table)
+if (withStatistics) {
+  library(ggplot2)
+  opal.assign(o,'D', paste0(datasource, ".", table))
+  opal.execute(o, 'library(ggplot2)')
+}
 ```
 
-Assign some variables into a data.frame with associated *D* symbol in R on Opal server side:
+The table **`r table`** is about "`r t$entityType`".
 
-```{r, comment=""}
-variables <- opal.variables(o, datasource='onyx', table='StandingHeight')
-opal.assign(o,'D','onyx.StandingHeight')
+```{r, results='asis', eval=withStatistics, echo=FALSE}
+cat(paste0("It has ", opal.execute(o, "ncol(D)"), " variables and ", opal.execute(o, "nrow(D)"), " entries.\n"))
 ```
+
 
 ## Variables
 
 ```{r run-variable-md, include=FALSE}
-out = NULL
+out <- NULL
 for (variable in variables) {
-  out = c(out, knit_child('opal-variable.Rmd'), sep='\n')
+  out <- c(out, knit_child('opal-variable.Rmd'), sep='\n')
 }
 ```
 
