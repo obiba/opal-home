@@ -7,10 +7,10 @@ This is an example of how to use **knitr** for producing a data dictionary on da
 # Global settings
 #
 #url <- "http://demo.obiba.org:8080"
-url <- "http://localhost:8080"
+url <- "https://localhost:8443"
 username <- "administrator"
 password <- "password"
-datasource <- "alberta"
+datasource <- "onyx"
 table <- "StandingHeight"
 withStatistics <- TRUE
 ```
@@ -18,7 +18,12 @@ withStatistics <- TRUE
 ```{r set-up, echo=FALSE,message=FALSE,results='hide'}
 # set up dictionary and data
 library(opal)
-o <- opal.login(username, password, url)
+options <- NULL
+protocol <- strsplit(url, split="://")[[1]][1]
+if (protocol=="https") {
+  options <- list(ssl.verifyhost=0,ssl.verifypeer=0,sslversion=3)
+}
+o <- opal.login(username, password, url, opts=options)
 variables <- opal.variables(o, datasource, table)
 t <- opal.table(o, datasource, table)
 if (withStatistics) {
@@ -36,6 +41,13 @@ cat(paste0("It has ", opal.execute(o, "ncol(D)"), " variables and ", opal.execut
 
 
 ## Variables
+
+```{r variables, results='asis', echo=FALSE}
+for (variable in variables) {
+  cat(paste0("* [", variable$name, "](#", variable$name,")\n"))
+}
+```
+
 
 ```{r run-variable-md, include=FALSE}
 out <- NULL
