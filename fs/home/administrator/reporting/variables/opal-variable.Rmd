@@ -1,0 +1,19 @@
+### `r variable$name`
+
+Property      | Value  
+------------- | -------------
+Value type    | `r variable$valueType`
+Entity type   | `r variable$entityType`
+
+#### Descriptive Statistics
+
+```{r, echo=FALSE, comment="", eval=(variable$valueType == 'integer' | variable$valueType == 'decimal')}
+opal.execute(o, paste0("summary(D$", variable$name, ")"))
+```
+
+#### Histogram
+
+```{r, echo=FALSE, eval=(variable$valueType == 'integer' | variable$valueType == 'decimal')}
+plot(opal.execute(o,paste0("hist(D$",variable$name,")")))
+```
+
