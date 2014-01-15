@@ -10,7 +10,7 @@ This is an example of how to use **knitr** for producing a data dictionary on da
 url <- "https://localhost:8443"
 username <- "administrator"
 password <- "password"
-datasource <- "alberta"
+datasource <- "onyx"
 table <- "StandingHeight"
 withStatistics <- TRUE
 ```
@@ -61,3 +61,13 @@ for (variable in variables) {
 ```{r clean-up, results=FALSE,echo=FALSE}
 opal.logout(o)
 ```
+
+<style type="text/css">
+.navbar {
+  display: none; 
+}
+
+h2, h3 {
+  page-break-before: always;
+}
+</style>

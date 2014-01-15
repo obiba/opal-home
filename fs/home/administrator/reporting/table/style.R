@@ -16,9 +16,11 @@
 #
 # https://github.com/jimhester/knitrBootstrap
 #
+# See for the list of boot_styles: https://github.com/jimhester/knitrBootstrap/blob/master/R/knit_bootstrap.R
+#
 options(rstudio.markdownToHTML =
   function(inputFile, outputFile) {
     require(knitrBootstrap)
-    knit_bootstrap_md(input=inputFile, output=outputFile)
+    knit_bootstrap_md(input=inputFile, output=outputFile, boot_style="flatly", chooser="boot")
   }
 )
