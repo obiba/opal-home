@@ -123,8 +123,7 @@ launch-python:
 #
 conf:
 	rm -rf conf data work logs && \
-	cp -r ${opal_project}/opal-server/src/main/conf . && \
-	cp -r ${opal_project}/opal-server/src/main/data .
+	cp -r ${opal_project}/opal-server/src/main/conf .
 
 #
 # Compile and install a Opal sub-project
@@ -195,7 +194,7 @@ clear-log:
 #
 clear-data:
 	rm -rf data/opal/*
-	
+
 clear-config:
 	rm -rf data && \
 	rm -rf conf && \
@@ -209,7 +208,7 @@ sql-dump: sql-opal-dump sql-key-dump
 
 sql-opal-dump:
 	mysqldump -u $(mysql_root) --password=$(mysql_password) --hex-blob --max_allowed_packet=1G $(opal_db) > $(opal_db)_$(version)_dump.sql
-	
+
 sql-key-dump:
 	mysqldump -u $(mysql_root) --password=$(mysql_password) $(key_db) > $(key_db)_$(version)_dump.sql
 
@@ -221,7 +220,7 @@ sql-import: sql-opal-import sql-key-import
 sql-opal-import:
 	mysql -u $(mysql_root) --password=$(mysql_password) -e "drop database `$(opal_db)`; create database `$(opal_db)`;" && \
 	mysql -u $(mysql_root) --password=$(mysql_password) `$(opal_db)` < $(opal_db)_$(version)_dump.sql
-	
+
 sql-key-import:
 	mysql -u $(mysql_root) --password=$(mysql_password) -e "drop database `$(key_db)`; create database `$(key_db)`;" && \
 	mysql -u $(mysql_root) --password=$(mysql_password) `$(key_db)` < $(key_db)_$(version)_dump.sql
