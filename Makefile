@@ -5,7 +5,7 @@ projects=$(HOME)/projects
 version=2.0-SNAPSHOT
 magma_version=1.8-SNAPSHOT
 commons_version=1.4-SNAPSHOT
-java_opts="-Xmx1G -XX:MaxPermSize=256M"
+java_opts="-Xms1G -Xmx2G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
 opal_project=${projects}/opal
 magma_project=${projects}/magma
