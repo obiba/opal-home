@@ -1,7 +1,7 @@
 opal-home
 =========
 
-Opal home for developpers: control your execution environnement outside of opal server code.
+[Opal](https://github.com/obiba/opal) home for developpers: control your execution environnement outside of opal server code.
 
 ## Set-up
 
