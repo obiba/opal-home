@@ -6,5 +6,7 @@ work/
 opal.py
 .idea/
 fs/tmp/
+fs/projects/
+fs/reports/
 export/
 pspp.jnl
