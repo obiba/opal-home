@@ -3,8 +3,8 @@
 ##
 projects=$(HOME)/projects
 version=2.1-SNAPSHOT
-magma_version=1.9-SNAPSHOT
-commons_version=1.6-SNAPSHOT
+magma_version=1.8-SNAPSHOT
+commons_version=1.5-SNAPSHOT
 java_opts="-Xms1G -Xmx2G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
 opal_project=${projects}/opal
