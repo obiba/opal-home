@@ -6,13 +6,12 @@ This is an example of how to use **knitr** for producing a data dictionary on da
 #
 # Global settings
 #
-#url <- "http://demo.obiba.org:8080"
-url <- "https://localhost:8443"
-username <- "administrator"
-password <- "password"
-datasource <- "onyx"
-table <- "StandingHeight"
-withStatistics <- TRUE
+url <- getOption("opal.url")
+username <- getOption("opal.username")
+password <- getOption("opal.password")
+datasource <- getOption("opal.datasource")
+table <- getOption("opal.table")
+withStatistics <- getOption("opal.withStatistics")
 ```
 
 ```{r set-up, echo=FALSE,message=FALSE,results='hide'}
@@ -44,7 +43,7 @@ cat(paste0("It has ", opal.execute(o, "ncol(D)"), " variables and ", opal.execut
 
 ```{r variables, results='asis', echo=FALSE}
 for (variable in variables) {
-  cat(paste0("* [", variable$name, "](#", variable$name,")\n"))
+  cat(paste0("* [", variable$name, "](#", gsub("\\.","_",variable$name),")\n"))
 }
 ```
 
@@ -63,9 +62,7 @@ opal.logout(o)
 ```
 
 <style type="text/css">
-.navbar {
-  display: none; 
-}
+
 
 h2, h3 {
   page-break-before: always;

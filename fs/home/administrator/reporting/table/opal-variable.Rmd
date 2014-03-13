@@ -1,4 +1,3 @@
-<a id="`r variable$name`"></a>
 ### `r variable$name`
 
 ```{r results=FALSE,echo=FALSE}
