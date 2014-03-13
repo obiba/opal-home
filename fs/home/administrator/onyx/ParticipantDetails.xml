@@ -1,0 +1,62 @@
+<org.obiba.magma.views.View>
+  <name>ParticipantDetails</name>
+  <from class="org.obiba.magma.views.JoinTable">
+    <list>
+      <table class="org.obiba.magma.support.ValueTableReference">
+        <reference>onyx.ParticipantPostalCode</reference>
+      </table>
+      <table class="org.obiba.magma.support.ValueTableReference">
+        <reference>onyx.Participants</reference>
+      </table>
+    </list>
+  </from>
+  <select class="org.obiba.magma.views.support.NoneClause"/>
+  <where class="org.obiba.magma.views.support.AllClause"/>
+  <variables class="org.obiba.magma.js.views.VariablesClause">
+    <variables class="linked-hash-set">
+      <variable name="Gender" valueType="text" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.gender</attribute>
+          <attribute name="script" valueType="text">$(&apos;Admin.Participant.gender&apos;);</attribute>
+        </attributes>
+        <categories>
+          <category name="FEMALE"/>
+          <category name="MALE"/>
+        </categories>
+      </variable>
+      <variable name="AppointmentDate" valueType="datetime" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.appointmentDate</attribute>
+          <attribute name="script" valueType="text">$(&apos;Admin.Participant.appointmentDate&apos;)</attribute>
+        </attributes>
+      </variable>
+      <variable name="Site" valueType="text" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.siteNo</attribute>
+          <attribute name="script" valueType="text">$(&apos;Admin.Participant.siteNo&apos;)</attribute>
+        </attributes>
+      </variable>
+      <variable name="BirthYear" valueType="integer" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="script" valueType="text">$(&apos;Admin.Participant.birthYear&apos;)</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.birthYear</attribute>
+        </attributes>
+      </variable>
+      <variable name="PostalCodePrefix" valueType="text" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="label" valueType="text" locale="en">Postal Code Prefix</attribute>
+          <attribute name="label" valueType="text" locale="fr">Préfixe du code postal</attribute>
+          <attribute name="script" valueType="text">$(&apos;Admin.Participant.PostalCodePrefix&apos;)</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.PostalCodePrefix</attribute>
+        </attributes>
+      </variable>
+      <variable name="Coordinate" valueType="point" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="script" valueType="text">$join(&apos;postal_codes.CA:COORDINATE&apos;, &apos;PostalCodePrefix&apos;);</attribute>
+        </attributes>
+      </variable>
+    </variables>
+  </variables>
+  <created valueType="datetime">2013-07-03T11:58:39.252-0400</created>
+  <updated valueType="datetime">2014-01-09T16:45:46.193-0500</updated>
+</org.obiba.magma.views.View>

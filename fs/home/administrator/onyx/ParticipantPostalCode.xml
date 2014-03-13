@@ -1,0 +1,22 @@
+<org.obiba.magma.views.View>
+  <name>ParticipantPostalCode</name>
+  <from class="org.obiba.magma.security.SudoValueTableReference">
+    <reference>onyx.Participants</reference>
+  </from>
+  <select class="org.obiba.magma.views.support.NoneClause"/>
+  <where class="org.obiba.magma.views.support.AllClause"/>
+  <variables class="org.obiba.magma.js.views.VariablesClause">
+    <variables class="linked-hash-set">
+      <variable name="PostalCodePrefix" valueType="text" entityType="Participant" unit="" mimeType="">
+        <attributes>
+          <attribute name="label" valueType="text" locale="en">Postal Code Prefix</attribute>
+          <attribute name="label" valueType="text" locale="fr">Préfixe du code postal</attribute>
+          <attribute name="script" valueType="text">&quot;CA-&quot; + $(&apos;Admin.Participant.PostalCodePrefix&apos;)</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/onyx/table/Participants/variable/Admin.Participant.PostalCodePrefix</attribute>
+        </attributes>
+      </variable>
+    </variables>
+  </variables>
+  <created valueType="datetime">2013-07-03T12:07:25.898-0400</created>
+  <updated valueType="datetime">2013-07-03T12:07:51.251-0400</updated>
+</org.obiba.magma.views.View>
