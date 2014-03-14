@@ -145,7 +145,7 @@ magma-update:
 #
 magma:
 	cd ${magma_project}/${p} && \
-	${gradle_exec} install && \
+	${gradle_exec} build install && \
 	cp target/libs/${p}-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
@@ -153,19 +153,9 @@ magma:
 #
 magma-all:
 	cd ${magma_project} && \
-	${gradle_exec} install && \
+	${gradle_exec} build install && \
 	find ${opal_project}/opal-server/target/opal-server-${version}/lib -type f | grep magma | grep -v health-canada | grep -v geonames | xargs rm && \
 	cp `find . -type f | grep jar$$ | grep -v sources | grep -v javadoc` ${opal_project}/opal-server/target/opal-server-${version}/lib
-
-#
-# Compile and install a Magma Hibernate sub-projects
-#
-magma-hibernate:
-	cd ${magma_project}/hibernate && \
-	${gradle_exec} install && \
-	cp magma-hibernate-audit/target/libs/magma-hibernate-audit-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp magma-hibernate-common/target/libs/magma-hibernate-common-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp magma-hibernate-datasource/target/libs/magma-hibernate-datasource-${magma_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install all Commons sub-projects
@@ -175,7 +165,6 @@ commons:
 	${mvn_exec} clean install && \
 	cp obiba-core/target/obiba-core-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
 	cp obiba-security/target/obiba-security-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
-
 
 #
 # Tail Opal log file
@@ -200,6 +189,15 @@ clear-config:
 	rm -rf conf && \
 	rm -rf logs && \
 	rm -rf work
+
+check-updates:
+	cd ${opal_project} && ${mvn_exec} versions:display-dependency-updates
+
+check-plugin-updates:
+	cd ${opal_project} && ${mvn_exec} versions:display-plugin-updates
+
+check-magma-updates:
+	cd ${magma_project} && ${gradle_exec} dependencyUpdates -Drevision=release
 
 #
 # Dump MySQL databases
