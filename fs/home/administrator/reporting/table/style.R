@@ -1,5 +1,5 @@
 #
-# Source this file before generating the report.
+# Source this file in Rstudio before generating the report.
 # http://nsaunders.wordpress.com/2012/08/27/custom-css-for-html-generated-using-rstudio/
 #
 
