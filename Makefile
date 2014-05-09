@@ -166,7 +166,10 @@ commons:
 	cd ${commons_project} && \
 	${mvn_exec} clean install && \
 	cp obiba-core/target/obiba-core-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
-	cp obiba-security/target/obiba-security-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+	cp obiba-git/target/obiba-git-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp obiba-shiro/target/obiba-shiro-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp obiba-shiro-web/target/obiba-shiro-web-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
+	cp obiba-shiro-crowd/target/obiba-shiro-crowd-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Tail Opal log file
