@@ -3,10 +3,10 @@
 ##
 projects=$(HOME)/projects
 version=2.3-SNAPSHOT
-magma_version=1.10-SNAPSHOT
-#version=2.2.3-SNAPSHOT
-#magma_version=1.10-SNAPSHOT
-commons_version=1.6-SNAPSHOT
+magma_version=1.10.1-SNAPSHOT
+#version=2.2.4-SNAPSHOT
+#magma_version=1.10.1-SNAPSHOT
+commons_version=1.6.1-SNAPSHOT
 java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
 opal_project=${projects}/opal
@@ -157,7 +157,7 @@ magma-all:
 	cd ${magma_project} && \
 	${gradle_exec} build install && \
 	find ${opal_project}/opal-server/target/opal-server-${version}/lib -type f | grep magma | grep -v health-canada | grep -v geonames | xargs rm && \
-	cp `find . -type f | grep jar$$ | grep -v sources | grep -v javadoc` ${opal_project}/opal-server/target/opal-server-${version}/lib
+	cp `find . -type f | grep jar$$ | grep -v sources | grep -v javadoc | grep -v jacoco` ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
 # Compile and install all Commons sub-projects
