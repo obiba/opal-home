@@ -3,10 +3,10 @@
 ##
 projects=$(HOME)/projects
 version=2.3-SNAPSHOT
-magma_version=1.10.1-SNAPSHOT
+magma_version=1.10.2-SNAPSHOT
 #version=2.2.4-SNAPSHOT
-#magma_version=1.10.1-SNAPSHOT
-commons_version=1.6.1-SNAPSHOT
+#magma_version=1.10.2-SNAPSHOT
+commons_version=1.7-SNAPSHOT
 java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
 opal_project=${projects}/opal
@@ -160,9 +160,17 @@ magma-all:
 	cp `find . -type f | grep jar$$ | grep -v sources | grep -v javadoc | grep -v jacoco` ${opal_project}/opal-server/target/opal-server-${version}/lib
 
 #
-# Compile and install all Commons sub-projects
+# Compile and install a Commons sub-project
 #
 commons:
+	cd ${commons_project}/${p} && \
+	${mvn_exec} clean install && \
+	cp target/${p}-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+
+#
+# Compile and install all Commons sub-projects
+#
+commons-all:
 	cd ${commons_project} && \
 	${mvn_exec} clean install && \
 	cp obiba-core/target/obiba-core-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
