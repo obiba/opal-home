@@ -16,7 +16,7 @@ The requirements on server side is:
 * to have permission to send R commands to Opal server
 * to have a running R server
 
-![alt text](http://datashield.org/images/opal-implementation.png)
+![alt text](https://raw.githubusercontent.com/datashield/datashield.github.com/1425f10c0ffa144b76cea2ef6f13811c6acea979/images/opal-implementation.png)
 
 The procedure is then the following:
 
@@ -27,12 +27,16 @@ The procedure is then the following:
 
 ### Example
 
+#### Opal Login
+
 Load the required libraries on client side and login in Opal (credentials and output are hidden)...
 
 ```{r echo=FALSE,message=FALSE}
 library(opal)
 o <- opal.login('administrator', 'password', 'http://demo.obiba.org:8080')
 ```
+
+#### Data Assignment
 
 Assign some variables into a data.frame with associated *D* symbol in R on Opal server side:
 
@@ -52,6 +56,8 @@ Summary of the assigned data.frame:
 opal.execute(o,'summary(D)')
 ```
 
+#### Data Plots
+
 Histogram figure of the *PITUUS* variable:
 
 ```{r}
@@ -70,7 +76,21 @@ Plot *PITUUS* vs. *PAINO* with "lm" smoothing:
 opal.execute(o,'qplot(PITUUS,PAINO, data=D) + geom_smooth(method="lm")')
 ```
 
-Cleaning the resources on Opal server side...
+#### File Download
+
+Any file can be extracted from Opal file system. Example of a file that is downloaded and read as a CSV file:
+
+```{r}
+lines <- opal.file(o,'/home/administrator/nasa/mars.csv')
+con <- textConnection(lines)
+data <- read.csv(con)
+close(con)
+data[,'Title']
+```
+
+#### Opal Logout
+
+Always free the resources on Opal R server side...
 
 ```{r results=FALSE,echo=FALSE}
 opal.logout(o)
