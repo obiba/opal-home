@@ -17,16 +17,16 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Binary</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
-  .and($(&apos;mica_demo.HOP:METABSYNDR_NBR_STRICT&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_CVA&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_AMI&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_LPD&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
+          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-NLSB:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
+  .and($(&apos;mica_demo.HOP-NLSB:METABSYNDR_NBR_STRICT&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_CVA&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_DIAB&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_HBP&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_AMI&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_DIAB&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_HBP&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_LPD&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
   .map({
   &apos;true&apos;:1,
   &apos;false&apos;:0
@@ -62,16 +62,16 @@
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
           <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
-  .and($(&apos;mica_demo.HOP:METABSYNDR_NBR_MODERATE&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_CVA&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:DIS_AMI&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP:MEDI_LPD&apos;).any(&apos;0&apos;))
-  //.and($(&apos;mica_demo.HOP:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
+          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-NLSB:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
+  .and($(&apos;mica_demo.HOP-NLSB:METABSYNDR_NBR_MODERATE&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_CVA&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_DIAB&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_HBP&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:DIS_AMI&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_DIAB&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_HBP&apos;).any(&apos;0&apos;))
+  .and($(&apos;mica_demo.HOP-NLSB:MEDI_LPD&apos;).any(&apos;0&apos;))
+  //.and($(&apos;mica_demo.HOP-NLSB:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
   .map({
   &apos;true&apos;:1,
   &apos;false&apos;:0
@@ -105,7 +105,7 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Continuous</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP:PM_WEIGHT_MEASURE&apos;).div($(&apos;mica_demo.HOP:PM_HEIGHT_MEASURE&apos;).unit(&apos;cm&apos;).toUnit(&apos;m&apos;).pow(2))</attribute>
+          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-NLSB:PM_WEIGHT_MEASURE&apos;).div($(&apos;mica_demo.HOP-NLSB:PM_HEIGHT_MEASURE&apos;).unit(&apos;cm&apos;).toUnit(&apos;m&apos;).pow(2))</attribute>
           <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
         </attributes>
         <categories>
@@ -174,17 +174,17 @@
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
           <attribute name="script" valueType="text">// High Blood Pressure
-var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP:PM_DIASTOLIC_MEASURE&apos;).group([85], [999]).map({
+var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP-NLSB:PM_DIASTOLIC_MEASURE&apos;).group([85], [999]).map({
     &apos;-85&apos;: &apos;0&apos;, 
     &apos;85+&apos;: &apos;1&apos;, 
     &apos;999&apos;: &apos;9&apos;
   },9);
-var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP:PM_SYSTOLIC_MEASURE&apos;).group([130], [999]).map({
+var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP-NLSB:PM_SYSTOLIC_MEASURE&apos;).group([130], [999]).map({
     &apos;-130&apos;: &apos;0&apos;, 
     &apos;130+&apos;: &apos;1&apos;, 
     &apos;999&apos;: &apos;9&apos;
   },9);
-var MEDI_HBP = $(&apos;mica_demo.HOP:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_HBP = $(&apos;mica_demo.HOP-NLSB:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var hbp;
 if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
   .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
@@ -200,12 +200,12 @@ if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
 }
 
 // Diabete
-var LAB_GLUC_FASTING = $(&apos;mica_demo.HOP:LAB_GLUC_FASTING&apos;).group([6.1], [99]).map({
+var LAB_GLUC_FASTING = $(&apos;mica_demo.HOP-NLSB:LAB_GLUC_FASTING&apos;).group([6.1], [99]).map({
     &apos;-6.1&apos;: &apos;0&apos;, 
     &apos;6.1+&apos;: &apos;1&apos;, 
     &apos;99&apos;: &apos;9&apos;
   },9);
-var MEDI_DIAB = $(&apos;mica_demo.HOP:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_DIAB = $(&apos;mica_demo.HOP-NLSB:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var diab;
 if (LAB_GLUC_FASTING.any(&apos;9&apos;).and(MEDI_DIAB.any(&apos;9&apos;)).value()) {
   diab = newValue(&apos;9&apos;);
@@ -218,8 +218,8 @@ if (LAB_GLUC_FASTING.any(&apos;9&apos;).and(MEDI_DIAB.any(&apos;9&apos;)).value(
 }
 
 // Cholesterol
-var GENDER = $(&apos;mica_demo.HOP:GENDER&apos;);
-var LAB_HDL = $(&apos;mica_demo.HOP:LAB_HDL&apos;);
+var GENDER = $(&apos;mica_demo.HOP-NLSB:GENDER&apos;);
+var LAB_HDL = $(&apos;mica_demo.HOP-NLSB:LAB_HDL&apos;);
 var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
       &apos;-1.03&apos;: &apos;1&apos;, 
       &apos;1.03+&apos;: &apos;0&apos;, 
@@ -236,13 +236,13 @@ var chol = GENDER.map({
   &apos;9&apos;:9},9);
 
 // Triglyceride
-var LAB_TRIG = $(&apos;mica_demo.HOP:LAB_TRIG&apos;).group([1.7], [99]).map({
+var LAB_TRIG = $(&apos;mica_demo.HOP-NLSB:LAB_TRIG&apos;).group([1.7], [99]).map({
     &apos;-1.7&apos;: &apos;0&apos;, 
     &apos;1.7+&apos;: &apos;1&apos;, 
     &apos;99&apos;: &apos;9&apos;
   },9);
-var MEDI_LPD = $(&apos;mica_demo.HOP:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_LPD = $(&apos;mica_demo.HOP-NLSB:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP-NLSB:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var tri;
 if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
   tri = newValue(&apos;9&apos;);
@@ -315,17 +315,17 @@ val;
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
           <attribute name="script" valueType="text">// High Blood Pressure
-var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP:PM_DIASTOLIC_MEASURE&apos;).group([90], [999]).map({
+var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP-NLSB:PM_DIASTOLIC_MEASURE&apos;).group([90], [999]).map({
     &apos;-90&apos;: &apos;0&apos;, 
     &apos;90+&apos;: &apos;1&apos;, 
     &apos;999&apos;: &apos;9&apos;
   },9);
-var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP:PM_SYSTOLIC_MEASURE&apos;).group([140], [999]).map({
+var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP-NLSB:PM_SYSTOLIC_MEASURE&apos;).group([140], [999]).map({
     &apos;-140&apos;: &apos;0&apos;, 
     &apos;140+&apos;: &apos;1&apos;, 
     &apos;999&apos;: &apos;9&apos;
   },9);
-var MEDI_HBP = $(&apos;mica_demo.HOP:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_HBP = $(&apos;mica_demo.HOP-NLSB:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var hbp;
 if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
   .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
@@ -341,12 +341,12 @@ if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
 }
 
 // Diabete
-var LAB_GLUC_FASTING = $(&apos;mica_demo.HOP:LAB_GLUC_FASTING&apos;).group([7], [99]).map({
+var LAB_GLUC_FASTING = $(&apos;mica_demo.HOP-NLSB:LAB_GLUC_FASTING&apos;).group([7], [99]).map({
     &apos;-7&apos;: &apos;0&apos;, 
     &apos;7+&apos;: &apos;1&apos;, 
     &apos;99&apos;: &apos;9&apos;
   },9);
-var MEDI_DIAB = $(&apos;mica_demo.HOP:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_DIAB = $(&apos;mica_demo.HOP-NLSB:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var diab;
 if (LAB_GLUC_FASTING.any(&apos;9&apos;).and(MEDI_DIAB.any(&apos;9&apos;)).value()) {
   diab = newValue(&apos;9&apos;);
@@ -359,8 +359,8 @@ if (LAB_GLUC_FASTING.any(&apos;9&apos;).and(MEDI_DIAB.any(&apos;9&apos;)).value(
 }
 
 // Cholesterol
-var GENDER = $(&apos;mica_demo.HOP:GENDER&apos;);
-var LAB_HDL = $(&apos;mica_demo.HOP:LAB_HDL&apos;);
+var GENDER = $(&apos;mica_demo.HOP-NLSB:GENDER&apos;);
+var LAB_HDL = $(&apos;mica_demo.HOP-NLSB:LAB_HDL&apos;);
 var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
       &apos;-1.03&apos;: &apos;1&apos;, 
       &apos;1.03+&apos;: &apos;0&apos;, 
@@ -377,13 +377,13 @@ var chol = GENDER.map({
   &apos;9&apos;:9},9);
 
 // Triglyceride
-var LAB_TRIG = $(&apos;mica_demo.HOP:LAB_TRIG&apos;).group([1.7], [99]).map({
+var LAB_TRIG = $(&apos;mica_demo.HOP-NLSB:LAB_TRIG&apos;).group([1.7], [99]).map({
     &apos;-1.7&apos;: &apos;0&apos;, 
     &apos;1.7+&apos;: &apos;1&apos;, 
     &apos;99&apos;: &apos;9&apos;
   },9);
-var MEDI_LPD = $(&apos;mica_demo.HOP:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_LPD = $(&apos;mica_demo.HOP-NLSB:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP-NLSB:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
 var tri;
 if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
   tri = newValue(&apos;9&apos;);
@@ -2081,7 +2081,7 @@ Phase 2 variable
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Categorical ordered</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP:PM_BMI_CONTINUOUS&apos;).group([0, 25, 30], [999]).map({
+          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-NLSB:PM_BMI_CONTINUOUS&apos;).group([0, 25, 30], [999]).map({
     &apos;0-25&apos;: &apos;1&apos;, 
     &apos;25-30&apos;: &apos;2&apos;, 
     &apos;30+&apos;: &apos;3&apos;, 
