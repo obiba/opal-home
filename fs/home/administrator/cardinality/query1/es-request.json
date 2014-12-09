@@ -1,0 +1,59 @@
+{
+    "query": {
+        "match_all": {}
+    },
+    "size": 0,
+    "aggregations": {
+        "1": {
+            "filter": {
+                "term": {
+                    "2617-samples_donors-SampleStatus": "Lesional material"
+                }
+            },
+            "aggregations": {
+                "0": {
+                    "cardinality": {
+                        "field": "2617-samples_donors-Donor"
+                    }
+                }
+            }
+        },
+        "2": {
+            "filter": {
+                "term": {
+                    "2617-samples_donors-ConsentStatus": "Informed consent"
+                }
+            },
+            "aggregations": {
+                "0": {
+                    "cardinality": {
+                        "field": "2617-samples_donors-Donor"
+                    }
+                }
+            }
+        },
+        "total": {
+            "filter": {
+                "and": [
+                    {
+                        "term": {
+                            "2617-samples_donors-SampleStatus": "Lesional material"
+                        }
+                    },
+                    {
+                        "term": {
+                            "2617-samples_donors-ConsentStatus": "Informed consent"
+                        }
+                    }
+                ]
+            },
+            "aggregations": {
+                "0": {
+                    "cardinality": {
+                        "field": "2617-samples_donors-Donor"
+                    }
+                }
+            }
+        }
+    }
+}

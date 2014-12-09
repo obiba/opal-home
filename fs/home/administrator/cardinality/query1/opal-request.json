@@ -1,0 +1,70 @@
+{
+    "queries": [
+        {
+            "facet": "1",
+            "Search.VariableTermDto.field": {
+                "variable": "Donor",
+                "type": "CARDINALITY"
+            },
+            "Search.LogicalTermDto.facetFilter": {
+                "operator": "AND_OP",
+                "Search.FilterDto.filters": {
+                    "variable": "SampleStatus",
+                    "Search.InTermDto.terms": {
+                        "values": [
+                            "Lesional material"
+                        ],
+                        "minimumMatch": 1
+                    }
+                }
+            }
+        },
+        {
+            "facet": "2",
+            "Search.VariableTermDto.field": {
+                "variable": "Donor",
+                "type": "CARDINALITY"
+            },
+            "Search.LogicalTermDto.facetFilter": {
+                "operator": "AND_OP",
+                "Search.FilterDto.filters": {
+                    "variable": "ConsentStatus",
+                    "Search.InTermDto.terms": {
+                        "values": [
+                            "Informed consent"
+                        ],
+                        "minimumMatch": 1
+                    }
+                }
+            }
+        },
+        {
+            "facet": "total",
+            "Search.VariableTermDto.field": {
+                "variable": "Donor",
+                "type": "CARDINALITY"
+            },
+            "Search.LogicalTermDto.facetFilter": {
+                "operator": "AND_OP",
+                "Search.FilterDto.filters": {
+                    "variable": "SampleStatus",
+                    "Search.InTermDto.terms": {
+                        "values": [
+                            "Lesional material"
+                        ],
+                        "minimumMatch": 1
+                    }
+                },
+                "Search.FilterDto.filters": {
+                    "variable": "ConsentStatus",
+                    "Search.InTermDto.terms": {
+                        "values": [
+                            "Informed consent"
+                        ],
+                        "minimumMatch": 1
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "facets": [
+        {
+            "facet": "1",
+            "frequencies": [
+                {
+                    "count": 3
+                }
+            ],
+            "filters": [
+                {
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "facet": "2",
+            "frequencies": [
+                {
+                    "count": 3
+                }
+            ],
+            "filters": [
+                {
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "facet": "total",
+            "frequencies": [
+                {
+                    "count": 2
+                }
+            ],
+            "filters": [
+                {
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "totalHits": 6
+}
