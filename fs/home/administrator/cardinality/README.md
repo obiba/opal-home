@@ -1,3 +1,7 @@
+## Reference
+
+[cardinality aggregation](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-metrics-cardinality-aggregation.html)
+
 ## Seed
 
 * Create a project with name "2617"
