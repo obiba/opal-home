@@ -4,8 +4,8 @@
 projects=$(HOME)/projects
 version=2.3-SNAPSHOT
 magma_version=1.11-SNAPSHOT
-#version=2.2.4-SNAPSHOT
-#magma_version=1.10.2-SNAPSHOT
+#version=2.2.12-SNAPSHOT
+#magma_version=1.10.7-SNAPSHOT
 commons_version=1.7-SNAPSHOT
 java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
