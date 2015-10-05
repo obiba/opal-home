@@ -2,8 +2,8 @@
 ## Makefile for Opal developpers
 ##
 projects=$(HOME)/projects
-version=2.4-SNAPSHOT
-magma_version=1.11-SNAPSHOT
+version=2.5-SNAPSHOT
+magma_version=1.12-SNAPSHOT
 #version=2.2.12-SNAPSHOT
 #magma_version=1.10.7-SNAPSHOT
 commons_version=1.7-SNAPSHOT
@@ -17,7 +17,7 @@ opal_home=${projects}/opal-home
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
 gradle_exec=${magma_project}/gradlew
-orientdb_version=1.6.4
+orientdb_version=2.1.2
 
 mysql_root=root
 mysql_password=1234
@@ -239,17 +239,16 @@ sql-key-import:
 download-orientdb:
 	mkdir -p work && \
 	cd work && \
-	wget http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/%20/%20/%20/%20/unknown/orientdb-community-$(orientdb_version).tar.gz && \
-	mkdir orientdb-community-$(orientdb_version) && \
-	tar -zxvf orientdb-community-$(orientdb_version).tar.gz && \
-	rm orientdb-community-$(orientdb_version).tar.gz && \
+	wget "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-$(orientdb_version).zip&os=multi" -O orientdb-community-$(orientdb_version).zip && \
+	unzip orientdb-community-$(orientdb_version).zip && \
+	rm orientdb-community-$(orientdb_version).zip && \
 	chmod a+x orientdb-community-$(orientdb_version)/bin/*.sh
 
 orientdb-console:
 	@echo
 	@echo "To connect to Opal OrientDB:"
-	@echo "  connect remote:localhost:2424/opal-config admin admin"
+	@echo "  connect premote:localhost:2424/opal-config admin admin"
 	@echo "or"
-	@echo "  connect local:$(opal_home)/data/orientdb/opal-config admin admin"
+	@echo "  connect plocal:$(opal_home)/data/orientdb/opal-config admin admin"
 	@echo
 	@cd work/orientdb-community-$(orientdb_version)/bin && ./console.sh
