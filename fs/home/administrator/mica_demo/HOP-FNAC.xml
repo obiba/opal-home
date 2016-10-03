@@ -1,14 +1,30 @@
 <org.obiba.magma.views.View>
-  <name>HOP</name>
+  <name>HOP-FNAC</name>
   <from class="org.obiba.magma.security.SudoValueTableReference">
-    <reference>mica_demo.FNAC</reference>
+    <reference>ccc.FNAC</reference>
   </from>
   <select class="org.obiba.magma.views.support.NoneClause"/>
   <where class="org.obiba.magma.views.support.AllClause"/>
   <variables class="org.obiba.magma.js.views.VariablesClause">
     <variables class="linked-hash-set">
-      <variable name="HLTH_OBESE_STRICT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="HLTH_OBESE_STRICT" valueType="integer" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
+          <attribute name="script" valueType="text">$this(&apos;PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
+  .and($this(&apos;METABSYNDR_NBR_STRICT&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_CVA&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_DIAB&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_HBP&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_AMI&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_DIAB&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_HBP&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_LPD&apos;).any(&apos;0&apos;))
+  //.and($this(&apos;MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
+  .map({
+  &apos;true&apos;:1,
+  &apos;false&apos;:0
+},9)</attribute>
+          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/HLTH_OBESE_STRICT</attribute>
           <attribute name="label" valueType="text" locale="en">Healthy and obese (strict criteria) </attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is healthy and obese using the strict metabolic syndrome criteria. To be considered as healthy obese the participant must have a BMI of more than 30 and not show any metabolic syndromes (using the strict criteria) or have a diagnosis of any targeted cardiovascular diseases, diabetes, or hypertension.
 </attribute>
@@ -17,21 +33,6 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Binary</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-FNAC:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
-  .and($(&apos;mica_demo.HOP-FNAC:METABSYNDR_NBR_STRICT&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_CVA&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_AMI&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_LPD&apos;).any(&apos;0&apos;))
-  //.and($(&apos;mica_demo.HOP-FNAC:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
-  .map({
-  &apos;true&apos;:1,
-  &apos;false&apos;:0
-},9)</attribute>
-          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
         </attributes>
         <categories>
           <category name="0">
@@ -51,8 +52,23 @@
           </category>
         </categories>
       </variable>
-      <variable name="HLTH_OBESE_MODERATE" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="HLTH_OBESE_MODERATE" valueType="integer" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
+          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="script" valueType="text">$this(&apos;PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
+  .and($this(&apos;METABSYNDR_NBR_MODERATE&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_CVA&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_DIAB&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_HBP&apos;).any(&apos;0&apos;))
+  .and($this(&apos;DIS_AMI&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_DIAB&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_HBP&apos;).any(&apos;0&apos;))
+  .and($this(&apos;MEDI_LPD&apos;).any(&apos;0&apos;))
+  //.and($this(&apos;MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
+  .map({
+  &apos;true&apos;:1,
+  &apos;false&apos;:0
+},9)</attribute>
           <attribute name="label" valueType="text" locale="en">Healthy and obese (moderate criteria)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is healthy and obese using the moderate metabolic syndrome criteria. To be considered as healthy obese the participant must have a BMI of more than 30 and not show any metabolic syndromes (using the moderate criteria) or have a diagnosis of any targeted cariadovascular diseases, diabetes, or hypertension.
 </attribute>
@@ -61,21 +77,7 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Binary</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-FNAC:PM_BMI_CATEGORIAL&apos;).any(&apos;3&apos;)
-  .and($(&apos;mica_demo.HOP-FNAC:METABSYNDR_NBR_MODERATE&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_CVA&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:DIS_AMI&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_DIAB&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_HBP&apos;).any(&apos;0&apos;))
-  .and($(&apos;mica_demo.HOP-FNAC:MEDI_LPD&apos;).any(&apos;0&apos;))
-  //.and($(&apos;mica_demo.HOP-FNAC:MEDI_NAME_LPD_FIBR_NICO&apos;).any(&apos;0&apos;))
-  .map({
-  &apos;true&apos;:1,
-  &apos;false&apos;:0
-},9)</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/HLTH_OBESE_MODERATE</attribute>
         </attributes>
         <categories>
           <category name="0">
@@ -95,8 +97,10 @@
           </category>
         </categories>
       </variable>
-      <variable name="PM_BMI_CONTINUOUS" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_BMI_CONTINUOUS" valueType="decimal" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
+          <attribute name="script" valueType="text">$this(&apos;PM_WEIGHT_MEASURE&apos;).div($this(&apos;PM_HEIGHT_MEASURE&apos;).unit(&apos;cm&apos;).toUnit(&apos;m&apos;).pow(2))</attribute>
+          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
           <attribute name="label" valueType="text" locale="en">Body Mass Index (continuous)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Body Mass Index calculated using measured weight and height (Mass in Kg / (Height in M)2).
 </attribute>
@@ -105,8 +109,7 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Continuous</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-FNAC:PM_WEIGHT_MEASURE&apos;).div($(&apos;mica_demo.HOP-FNAC:PM_HEIGHT_MEASURE&apos;).unit(&apos;cm&apos;).toUnit(&apos;m&apos;).pow(2))</attribute>
-          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/PM_BMI_CONTINUOUS</attribute>
         </attributes>
         <categories>
           <category name="999" missing="true">
@@ -116,7 +119,7 @@
           </category>
         </categories>
       </variable>
-      <variable name="PM_HEIGHT_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_HEIGHT_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Measured Standing Height</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">The vertical measurement or distance from the foot to the head of the participant when he/she is standing. Must be measured and not self-reported. Unit: cm
@@ -139,7 +142,7 @@
           </category>
         </categories>
       </variable>
-      <variable name="PM_WEIGHT_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_WEIGHT_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Measured Weight</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Weight of the participant. Must be measured and not self-reported. Unit: Kg
@@ -162,8 +165,104 @@
           </category>
         </categories>
       </variable>
-      <variable name="METABSYNDR_NBR_STRICT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="METABSYNDR_NBR_STRICT" valueType="integer" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
+          <attribute name="script" valueType="text">// High Blood Pressure
+var PM_DIASTOLIC_MEASURE = $this(&apos;PM_DIASTOLIC_MEASURE&apos;).group([85], [999]).map({
+    &apos;-85&apos;: &apos;0&apos;, 
+    &apos;85+&apos;: &apos;1&apos;, 
+    &apos;999&apos;: &apos;9&apos;
+  },9);
+var PM_SYSTOLIC_MEASURE = $this(&apos;PM_SYSTOLIC_MEASURE&apos;).group([130], [999]).map({
+    &apos;-130&apos;: &apos;0&apos;, 
+    &apos;130+&apos;: &apos;1&apos;, 
+    &apos;999&apos;: &apos;9&apos;
+  },9);
+var MEDI_HBP = $this(&apos;MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var hbp;
+if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
+  .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
+  .and(MEDI_HBP.any(&apos;9&apos;)).value()) {
+  hbp = newValue(&apos;9&apos;);
+} else {
+  hbp = PM_DIASTOLIC_MEASURE.any(&apos;1&apos;)
+    .or(PM_SYSTOLIC_MEASURE.any(&apos;1&apos;))
+    .or(MEDI_HBP.any(&apos;1&apos;))
+    .map({
+     &apos;false&apos;:0,
+     &apos;true&apos;:1},9);
+}
+
+// Diabete
+/*var LAB_GLUC = $this(&apos;LAB_GLUC&apos;).group([6.1], [99]).map({
+    &apos;-6.1&apos;: &apos;0&apos;, 
+    &apos;6.1+&apos;: &apos;1&apos;, 
+    &apos;99&apos;: &apos;9&apos;
+  },9);*/
+var MEDI_DIAB = $this(&apos;MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var diab;
+if (MEDI_DIAB.any(&apos;9&apos;).value()) {
+  diab = newValue(&apos;9&apos;);
+} else {
+  diab = MEDI_DIAB.any(&apos;1&apos;)
+    .map({
+     &apos;false&apos;:0,
+     &apos;true&apos;:1},9);
+}
+
+// Cholesterol
+var GENDER = $this(&apos;GENDER&apos;);
+var LAB_HDL = $this(&apos;LAB_HDL&apos;);
+var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
+      &apos;-1.03&apos;: &apos;1&apos;, 
+      &apos;1.03+&apos;: &apos;0&apos;, 
+      &apos;99&apos;: &apos;9&apos;
+    },9);
+var LAB_HDL_F = LAB_HDL.group([1.3], [99]).map({
+      &apos;-1.3&apos;: &apos;1&apos;, 
+      &apos;1.3+&apos;: &apos;0&apos;, 
+      &apos;99&apos;: &apos;9&apos;
+    },9);
+var chol = GENDER.map({
+  &apos;0&apos;:LAB_HDL_M,
+  &apos;1&apos;:LAB_HDL_F,
+  &apos;9&apos;:9},9);
+
+// Triglyceride
+var LAB_TRIG = $this(&apos;LAB_TRIG&apos;).group([1.7], [99]).map({
+    &apos;-1.7&apos;: &apos;0&apos;, 
+    &apos;1.7+&apos;: &apos;1&apos;, 
+    &apos;99&apos;: &apos;9&apos;
+  },9);
+var MEDI_LPD = $this(&apos;MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_NAME_LPD_FIBR_NICO = $this(&apos;MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var tri;
+if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
+  tri = newValue(&apos;9&apos;);
+} else {
+  tri = LAB_TRIG.any(&apos;1&apos;)
+  .or(MEDI_LPD.any(&apos;1&apos;))
+  .or(MEDI_NAME_LPD_FIBR_NICO.any(&apos;1&apos;))
+  .map({
+   &apos;false&apos;:0,
+   &apos;true&apos;:1},9);
+}
+
+// Syndrom count
+var val = 0;
+if (hbp.any(&apos;9&apos;).and(diab.any(&apos;9&apos;)).and(chol.any(&apos;9&apos;)).and(tri.any(&apos;9&apos;)).value()) {
+  // all syndrom info are missing
+  val = 9;
+}
+else {
+  if (hbp.any(&apos;1&apos;).value()) { val = 1; }
+  if (diab.any(&apos;1&apos;).value()) { val += 1; }
+  if (chol.any(&apos;1&apos;).value()) { val += 1; }
+  if (tri.any(&apos;1&apos;).value()) { val += 1; }
+}
+val;
+</attribute>
+          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
           <attribute name="label" valueType="text" locale="en">Number of targeted metabolic syndromes (strict criteria)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">The number of metabolic syndromes present in the participant using strict criteria (i.e. (1) Blood pressure ≥ 130 mmHg systolic, or ≥85 mmHg diastolic, or treatment for elevated BP; (2) Fasting blood glucose ≥ 6.1, or medical treatment for diabetes; (3) HDL cholesterol  &lt; 1.03 mmol/l (men) or &lt; 1.30 mmol/l (women) - in non-SI units: &lt; 40 mg/dl (men) or &lt; 50 mg/dl (women); (4) Triglycerides ≥ 1.7 mmol/l (≥ 150 mg/dl), or on medication for elevated triglycerides.
  
@@ -173,102 +272,7 @@
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Categorical ordered</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">// High Blood Pressure
-var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP-FNAC:PM_DIASTOLIC_MEASURE&apos;).group([85], [999]).map({
-    &apos;-85&apos;: &apos;0&apos;, 
-    &apos;85+&apos;: &apos;1&apos;, 
-    &apos;999&apos;: &apos;9&apos;
-  },9);
-var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP-FNAC:PM_SYSTOLIC_MEASURE&apos;).group([130], [999]).map({
-    &apos;-130&apos;: &apos;0&apos;, 
-    &apos;130+&apos;: &apos;1&apos;, 
-    &apos;999&apos;: &apos;9&apos;
-  },9);
-var MEDI_HBP = $(&apos;mica_demo.HOP-FNAC:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var hbp;
-if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
-  .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
-  .and(MEDI_HBP.any(&apos;9&apos;)).value()) {
-  hbp = newValue(&apos;9&apos;);
-} else {
-  hbp = PM_DIASTOLIC_MEASURE.any(&apos;1&apos;)
-    .or(PM_SYSTOLIC_MEASURE.any(&apos;1&apos;))
-    .or(MEDI_HBP.any(&apos;1&apos;))
-    .map({
-     &apos;false&apos;:0,
-     &apos;true&apos;:1},9);
-}
-
-// Diabete
-/*var LAB_GLUC = $(&apos;mica_demo.HOP-FNAC:LAB_GLUC&apos;).group([6.1], [99]).map({
-    &apos;-6.1&apos;: &apos;0&apos;, 
-    &apos;6.1+&apos;: &apos;1&apos;, 
-    &apos;99&apos;: &apos;9&apos;
-  },9);*/
-var MEDI_DIAB = $(&apos;mica_demo.HOP-FNAC:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var diab;
-if (MEDI_DIAB.any(&apos;9&apos;).value()) {
-  diab = newValue(&apos;9&apos;);
-} else {
-  diab = MEDI_DIAB.any(&apos;1&apos;)
-    .map({
-     &apos;false&apos;:0,
-     &apos;true&apos;:1},9);
-}
-
-// Cholesterol
-var GENDER = $(&apos;mica_demo.HOP-FNAC:GENDER&apos;);
-var LAB_HDL = $(&apos;mica_demo.HOP-FNAC:LAB_HDL&apos;);
-var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
-      &apos;-1.03&apos;: &apos;1&apos;, 
-      &apos;1.03+&apos;: &apos;0&apos;, 
-      &apos;99&apos;: &apos;9&apos;
-    },9);
-var LAB_HDL_F = LAB_HDL.group([1.3], [99]).map({
-      &apos;-1.3&apos;: &apos;1&apos;, 
-      &apos;1.3+&apos;: &apos;0&apos;, 
-      &apos;99&apos;: &apos;9&apos;
-    },9);
-var chol = GENDER.map({
-  &apos;0&apos;:LAB_HDL_M,
-  &apos;1&apos;:LAB_HDL_F,
-  &apos;9&apos;:9},9);
-
-// Triglyceride
-var LAB_TRIG = $(&apos;mica_demo.HOP-FNAC:LAB_TRIG&apos;).group([1.7], [99]).map({
-    &apos;-1.7&apos;: &apos;0&apos;, 
-    &apos;1.7+&apos;: &apos;1&apos;, 
-    &apos;99&apos;: &apos;9&apos;
-  },9);
-var MEDI_LPD = $(&apos;mica_demo.HOP-FNAC:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP-FNAC:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var tri;
-if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
-  tri = newValue(&apos;9&apos;);
-} else {
-  tri = LAB_TRIG.any(&apos;1&apos;)
-  .or(MEDI_LPD.any(&apos;1&apos;))
-  .or(MEDI_NAME_LPD_FIBR_NICO.any(&apos;1&apos;))
-  .map({
-   &apos;false&apos;:0,
-   &apos;true&apos;:1},9);
-}
-
-// Syndrom count
-var val = 0;
-if (hbp.any(&apos;9&apos;).and(diab.any(&apos;9&apos;)).and(chol.any(&apos;9&apos;)).and(tri.any(&apos;9&apos;)).value()) {
-  // all syndrom info are missing
-  val = 9;
-}
-else {
-  if (hbp.any(&apos;1&apos;).value()) { val = 1; }
-  if (diab.any(&apos;1&apos;).value()) { val += 1; }
-  if (chol.any(&apos;1&apos;).value()) { val += 1; }
-  if (tri.any(&apos;1&apos;).value()) { val += 1; }
-}
-val;
-</attribute>
-          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/METABSYNDR_NBR_STRICT</attribute>
         </attributes>
         <categories>
           <category name="0">
@@ -303,8 +307,104 @@ val;
           </category>
         </categories>
       </variable>
-      <variable name="METABSYNDR_NBR_MODERATE" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="METABSYNDR_NBR_MODERATE" valueType="integer" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
+          <attribute name="script" valueType="text">// High Blood Pressure
+var PM_DIASTOLIC_MEASURE = $this(&apos;PM_DIASTOLIC_MEASURE&apos;).group([90], [999]).map({
+    &apos;-90&apos;: &apos;0&apos;, 
+    &apos;90+&apos;: &apos;1&apos;, 
+    &apos;999&apos;: &apos;9&apos;
+  },9);
+var PM_SYSTOLIC_MEASURE = $this(&apos;PM_SYSTOLIC_MEASURE&apos;).group([140], [999]).map({
+    &apos;-140&apos;: &apos;0&apos;, 
+    &apos;140+&apos;: &apos;1&apos;, 
+    &apos;999&apos;: &apos;9&apos;
+  },9);
+var MEDI_HBP = $this(&apos;MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var hbp;
+if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
+  .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
+  .and(MEDI_HBP.any(&apos;9&apos;)).value()) {
+  hbp = newValue(&apos;9&apos;);
+} else {
+  hbp = PM_DIASTOLIC_MEASURE.any(&apos;1&apos;)
+    .or(PM_SYSTOLIC_MEASURE.any(&apos;1&apos;))
+    .or(MEDI_HBP.any(&apos;1&apos;))
+    .map({
+     &apos;false&apos;:0,
+     &apos;true&apos;:1},9);
+}
+
+// Diabete
+/*var LAB_GLUC = $this(&apos;LAB_GLUC&apos;).group([7], [99]).map({
+    &apos;-7&apos;: &apos;0&apos;, 
+    &apos;7+&apos;: &apos;1&apos;, 
+    &apos;99&apos;: &apos;9&apos;
+  },9);*/
+var MEDI_DIAB = $this(&apos;MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var diab;
+if (MEDI_DIAB.any(&apos;9&apos;).value()) {
+  diab = newValue(&apos;9&apos;);
+} else {
+  diab = MEDI_DIAB.any(&apos;1&apos;)
+    .map({
+     &apos;false&apos;:0,
+     &apos;true&apos;:1},9);
+}
+
+// Cholesterol
+var GENDER = $this(&apos;GENDER&apos;);
+var LAB_HDL = $this(&apos;LAB_HDL&apos;);
+var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
+      &apos;-1.03&apos;: &apos;1&apos;, 
+      &apos;1.03+&apos;: &apos;0&apos;, 
+      &apos;99&apos;: &apos;9&apos;
+    },9);
+var LAB_HDL_F = LAB_HDL.group([1.3], [99]).map({
+      &apos;-1.3&apos;: &apos;1&apos;, 
+      &apos;1.3+&apos;: &apos;0&apos;, 
+      &apos;99&apos;: &apos;9&apos;
+    },9);
+var chol = GENDER.map({
+  &apos;0&apos;:LAB_HDL_M,
+  &apos;1&apos;:LAB_HDL_F,
+  &apos;9&apos;:9},9);
+
+// Triglyceride
+var LAB_TRIG = $this(&apos;LAB_TRIG&apos;).group([1.7], [99]).map({
+    &apos;-1.7&apos;: &apos;0&apos;, 
+    &apos;1.7+&apos;: &apos;1&apos;, 
+    &apos;99&apos;: &apos;9&apos;
+  },9);
+var MEDI_LPD = $this(&apos;MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var MEDI_NAME_LPD_FIBR_NICO = $this(&apos;MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
+var tri;
+if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
+  tri = newValue(&apos;9&apos;);
+} else {
+  tri = LAB_TRIG.any(&apos;1&apos;)
+  .or(MEDI_LPD.any(&apos;1&apos;))
+  .or(MEDI_NAME_LPD_FIBR_NICO.any(&apos;1&apos;))
+  .map({
+   &apos;false&apos;:0,
+   &apos;true&apos;:1},9);
+}
+
+// Syndrom count
+var val = 0;
+if (hbp.any(&apos;9&apos;).and(diab.any(&apos;9&apos;)).and(chol.any(&apos;9&apos;)).and(tri.any(&apos;9&apos;)).value()) {
+  // all syndrom info are missing
+  val = 9;
+}
+else {
+  if (hbp.any(&apos;1&apos;).value()) { val = 1; }
+  if (diab.any(&apos;1&apos;).value()) { val += 1; }
+  if (chol.any(&apos;1&apos;).value()) { val += 1; }
+  if (tri.any(&apos;1&apos;).value()) { val += 1; }
+}
+val;
+</attribute>
+          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
           <attribute name="label" valueType="text" locale="en">Number of targeted metabolic syndromes (moderate criteria)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">The number of metabolic syndromes present in the participant using moderate criteria (i.e. (1) Blood pressure ≥ 140 mmHg systolic, or ≥90 mmHg diastolic, or treatment for elevated BP; (2) Fasting blood glucose ≥ 7, or medical treatment for diabetes; (3) HDL cholesterol  &lt; 1.03 mmol/l (men) or &lt; 1.30 mmol/l (women) - in non-SI units: &lt; 40 mg/dl (men) or &lt; 50 mg/dl (women); (4) Triglycerides ≥ 1.7 mmol/l (≥ 150 mg/dl), or on medication for elevated triglycerides.
 </attribute>
@@ -313,102 +413,7 @@ val;
           <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Categorical ordered</attribute>
           <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">// High Blood Pressure
-var PM_DIASTOLIC_MEASURE = $(&apos;mica_demo.HOP-FNAC:PM_DIASTOLIC_MEASURE&apos;).group([90], [999]).map({
-    &apos;-90&apos;: &apos;0&apos;, 
-    &apos;90+&apos;: &apos;1&apos;, 
-    &apos;999&apos;: &apos;9&apos;
-  },9);
-var PM_SYSTOLIC_MEASURE = $(&apos;mica_demo.HOP-FNAC:PM_SYSTOLIC_MEASURE&apos;).group([140], [999]).map({
-    &apos;-140&apos;: &apos;0&apos;, 
-    &apos;140+&apos;: &apos;1&apos;, 
-    &apos;999&apos;: &apos;9&apos;
-  },9);
-var MEDI_HBP = $(&apos;mica_demo.HOP-FNAC:MEDI_HBP&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var hbp;
-if (PM_DIASTOLIC_MEASURE.any(&apos;9&apos;)
-  .and(PM_SYSTOLIC_MEASURE.any(&apos;9&apos;))
-  .and(MEDI_HBP.any(&apos;9&apos;)).value()) {
-  hbp = newValue(&apos;9&apos;);
-} else {
-  hbp = PM_DIASTOLIC_MEASURE.any(&apos;1&apos;)
-    .or(PM_SYSTOLIC_MEASURE.any(&apos;1&apos;))
-    .or(MEDI_HBP.any(&apos;1&apos;))
-    .map({
-     &apos;false&apos;:0,
-     &apos;true&apos;:1},9);
-}
-
-// Diabete
-/*var LAB_GLUC = $(&apos;mica_demo.HOP-FNAC:LAB_GLUC&apos;).group([7], [99]).map({
-    &apos;-7&apos;: &apos;0&apos;, 
-    &apos;7+&apos;: &apos;1&apos;, 
-    &apos;99&apos;: &apos;9&apos;
-  },9);*/
-var MEDI_DIAB = $(&apos;mica_demo.HOP-FNAC:MEDI_DIAB&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var diab;
-if (MEDI_DIAB.any(&apos;9&apos;).value()) {
-  diab = newValue(&apos;9&apos;);
-} else {
-  diab = MEDI_DIAB.any(&apos;1&apos;)
-    .map({
-     &apos;false&apos;:0,
-     &apos;true&apos;:1},9);
-}
-
-// Cholesterol
-var GENDER = $(&apos;mica_demo.HOP-FNAC:GENDER&apos;);
-var LAB_HDL = $(&apos;mica_demo.HOP-FNAC:LAB_HDL&apos;);
-var LAB_HDL_M = LAB_HDL.group([1.03], [99]).map({
-      &apos;-1.03&apos;: &apos;1&apos;, 
-      &apos;1.03+&apos;: &apos;0&apos;, 
-      &apos;99&apos;: &apos;9&apos;
-    },9);
-var LAB_HDL_F = LAB_HDL.group([1.3], [99]).map({
-      &apos;-1.3&apos;: &apos;1&apos;, 
-      &apos;1.3+&apos;: &apos;0&apos;, 
-      &apos;99&apos;: &apos;9&apos;
-    },9);
-var chol = GENDER.map({
-  &apos;0&apos;:LAB_HDL_M,
-  &apos;1&apos;:LAB_HDL_F,
-  &apos;9&apos;:9},9);
-
-// Triglyceride
-var LAB_TRIG = $(&apos;mica_demo.HOP-FNAC:LAB_TRIG&apos;).group([1.7], [99]).map({
-    &apos;-1.7&apos;: &apos;0&apos;, 
-    &apos;1.7+&apos;: &apos;1&apos;, 
-    &apos;99&apos;: &apos;9&apos;
-  },9);
-var MEDI_LPD = $(&apos;mica_demo.HOP-FNAC:MEDI_LPD&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var MEDI_NAME_LPD_FIBR_NICO = $(&apos;mica_demo.HOP-FNAC:MEDI_NAME_LPD_FIBR_NICO&apos;).map({&apos;0&apos;:0,&apos;1&apos;:1},9,9);
-var tri;
-if (LAB_TRIG.any(&apos;9&apos;).and(MEDI_LPD.any(&apos;9&apos;)).and(MEDI_NAME_LPD_FIBR_NICO.any(&apos;9&apos;)).value()) {
-  tri = newValue(&apos;9&apos;);
-} else {
-  tri = LAB_TRIG.any(&apos;1&apos;)
-  .or(MEDI_LPD.any(&apos;1&apos;))
-  .or(MEDI_NAME_LPD_FIBR_NICO.any(&apos;1&apos;))
-  .map({
-   &apos;false&apos;:0,
-   &apos;true&apos;:1},9);
-}
-
-// Syndrom count
-var val = 0;
-if (hbp.any(&apos;9&apos;).and(diab.any(&apos;9&apos;)).and(chol.any(&apos;9&apos;)).and(tri.any(&apos;9&apos;)).value()) {
-  // all syndrom info are missing
-  val = 9;
-}
-else {
-  if (hbp.any(&apos;1&apos;).value()) { val = 1; }
-  if (diab.any(&apos;1&apos;).value()) { val += 1; }
-  if (chol.any(&apos;1&apos;).value()) { val += 1; }
-  if (tri.any(&apos;1&apos;).value()) { val += 1; }
-}
-val;
-</attribute>
-          <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/METABSYNDR_NBR_MODERATE</attribute>
         </attributes>
         <categories>
           <category name="0">
@@ -443,7 +448,7 @@ val;
           </category>
         </categories>
       </variable>
-      <variable name="LAB_GLUC_FASTING" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_GLUC_FASTING" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Laboratory measurement of fasting glucose. Unit mmol/L
 </attribute>
@@ -465,7 +470,7 @@ val;
           </category>
         </categories>
       </variable>
-      <variable name="LAB_TSC" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_TSC" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Total Serum Cholesterol</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Laboratory measurement of total serum cholesterol. Unit: mmol/L
@@ -491,7 +496,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="LAB_TRIG" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_TRIG" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Triglycerides</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Laboratory measurement of triglycerides. Unit: mmol/L
@@ -517,7 +522,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="DIS_CVA" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="DIS_CVA" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">History of Stroke</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Occurence of stroke at any point during the life of the participant. Can be collected using an assessment item asking about the history of stroke or from a list of disease history using ICD-10 Codes I60-I69 (Please make a note to indicate which coding is used for diagnosis if other than ICD-10)
@@ -555,7 +560,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="DIS_DIAB" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="DIS_DIAB" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">History of Diabetes</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Occurrence of diabetes at any point during the life of the participant (not including gestational). Can be collected using an assessment item asking about the history of diabetes specifically, or from a list of disease history using ICD-10 Codes E10-E16 (Please make a note to indicate which coding is used for diagnosis if other than ICD-10)
@@ -597,7 +602,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="DIS_DIAB_TYPE" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="DIS_DIAB_TYPE" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Type of Diabetes</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Type of diabetes diagnosed. Whether the participant had type 1, type 2, or gestational diabetes.
@@ -644,7 +649,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="DIS_HBP" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="DIS_HBP" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">History of Hypertension</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Occurrence of high blood pressure at any point during the life of the participant. Can be collected using an assessment item asking about the history of hypertension specifically, or from a list of disease history using ICD-10 Codes I10-I15 (Please make a note to indicate which coding is used for diagnosis if other than ICD-10)
@@ -682,7 +687,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="DIS_AMI" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="DIS_AMI" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">History of Myocardial Infarction</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Occurrence of myocardial infarction at any point during the life of the participant. Can be collected using an assessment item asking abour myocardial infarction or heart attack or from a list of disease history using ICD-10 Codes I20-I22 (Please make a note to indicate which coding is used for diagnosis if other than ICD-10)
@@ -720,7 +725,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="MEDI_HBP" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="MEDI_HBP" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Use of Antihypertensive Medication (from categorical assessment item)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently uses antihypertensive medication. Self-reported by a question targeting the use of antihypertensive medication.
@@ -762,7 +767,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="MEDI_DIAB" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="MEDI_DIAB" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Use of Glucose Lowering Medication (from categorical assessment item)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently uses glucose lowering medication. Self-reported by a question targeting the use of glucose lowering medication or medication to treat diabetes.
@@ -803,7 +808,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="HOUSEHOLD_INCOME" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="HOUSEHOLD_INCOME" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">UNDER DEVELOPMENT
 Average annual income, after taxes deduction, of the participant&apos;s entire household (in Euros).
@@ -822,7 +827,7 @@ Phase 2 variable
           <attribute name="script" valueType="text">null</attribute>
         </attributes>
       </variable>
-      <variable name="HOUSEHOLD_NUM_PPL" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="HOUSEHOLD_NUM_PPL" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Number of people who live with the participant in the same household (including the participant).
 Phase 2 variable
@@ -846,7 +851,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="EDU_POST_SEC_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="EDU_POST_SEC_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant completed at least some elements of post-secondary (non-tertiary) education using UNESCO Revision of the International Standard Classification of Education, 2011 (ISCED-2011; http://www.uis.unesco.org/Education/Documents/UNESCO_GC_36C-19_ISCED_EN.pdf). Educational programmes classified as &quot;post-secondary non-tertiary&quot; are not considered as tertiary education and are typically  vocational and terminal programmes that prepare for the labour market. They are referred to in many ways across the world and encompass technician diplomas, primary professional education, post-secondary non-tertiary vocational, and préparation aux carrières administratives. For international comparability purposes the term “post-secondary non-tertiary” is used.
 Phase 2 variable
@@ -890,7 +895,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="EDU_TERTIARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="EDU_TERTIARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant completed at least some elements of tertiary education using UNESCO Revision of the International Standard Classification of Education, 2011 (ISCED-2011; http://www.uis.unesco.org/Education/Documents/UNESCO_GC_36C-19_ISCED_EN.pdf). Here, &quot;tertiary education&quot; combines levels 5 through 8 of ISCED (Short-cycle tertiary, Bachelor or equivalent, Master or equivalent, Doctoral or equivalent). Educational programmes classified as &quot;tertiary education&quot; are referred to in many ways across the world, and encompass master craftsman programme, (higher) technical education, community college education, technician or advanced/higher vocational training, associate degree, bachelor programme, licence, first university cycle, master programmes, magister, PhD, DPhil, D.Lit, D.Sc, LL.D, and Doctorate. For international comparability purposes the term “tertiary” is used.
 Phase 2 variable
@@ -934,7 +939,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="EDU_SECONDARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="EDU_SECONDARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant completed at least some elements of secondary education/second stage of basic education using UNESCO Revision of the International Standard Classification of Education, 2011 (ISCED-2011; http://www.uis.unesco.org/Education/Documents/UNESCO_GC_36C-19_ISCED_EN.pdf). Here, &quot;secondary education&quot; combines levels 2 and 3 of ISCED (Lower and Upper Secondary). Educational programmes classified as &quot;secondary education&quot; are referred to in many ways across the world and encompass secondary school (upper and lower grades), junior/senior secondary school, middle school, junior high school, and high school. For international comparability purposes the term “secondary education” is used.
 Phase 2 variable 
@@ -978,7 +983,7 @@ Phase 2 variable 
           </category>
         </categories>
       </variable>
-      <variable name="EDU_PRIMARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="EDU_PRIMARY_COMPLETED" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant completed at least some elements of primary education using UNESCO Revision of the International Standard Classification of Education, 2011 (ISCED-2011; http://www.uis.unesco.org/Education/Documents/UNESCO_GC_36C-19_ISCED_EN.pdf). Educational programmes classified as &quot;primary education&quot; are referred to in many ways across the world, and encompass elementary education and basic education (stage 1/lower grades). For international comparability purposes the term “primary” is used.
 Phase 2 variable
@@ -1022,7 +1027,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="WORK_JOB_ISCO88" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="WORK_JOB_ISCO88" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Participant&apos;s current job title based on the International Standard Classification of Occupations (ISCO-88; http://www.ilo.org/public/english/bureau/stat/isco/isco88/index.htm).The ten major groups at the top level of the ISCO-88 are used to classify occupations.
 Phase 2 variable
@@ -1096,7 +1101,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="WORK_STUDENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="WORK_STUDENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is currently a student.
 Phase 2 variable
@@ -1147,7 +1152,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="WORK_WEEK_HOURS_NUM" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="WORK_WEEK_HOURS_NUM" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Average number of working hours of the participant per week.
 Phase 2 variable
@@ -1171,7 +1176,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_CURRENT_QTY_TOTAL" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_CURRENT_QTY_TOTAL" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Quantity of Total Alcohol Consumed in Wine, Beer and Liquors per week (Phase 2)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">UNDER DEVELOPMENT
@@ -1188,7 +1193,7 @@ Phase 2 variable
           <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
         </attributes>
       </variable>
-      <variable name="WORK_STATUS_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="WORK_STATUS_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is currently in paid employment or is self-employed.
 Phase 2 variable
@@ -1239,7 +1244,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="WORK_RETIRED" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="WORK_RETIRED" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is currently retired.
 Phase 2 variable
@@ -1290,7 +1295,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="MARITAL_STATUS" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="MARITAL_STATUS" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Current marital status.
 Phase 2 variable
@@ -1342,7 +1347,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="SMK_CIG_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_CIG_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently smokes cigarettes. Current is defined as today and up to the last 12 months. 
 Phase 2 variable
@@ -1376,7 +1381,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="SMK_CIG_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_CIG_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Current average number of cigarettes smoked per week. Current is defined as today and up to the last 12 months.
 Phase 2 variable
@@ -1404,7 +1409,7 @@ val;</attribute>
           </category>
         </categories>
       </variable>
-      <variable name="SMK_TBC_EVER" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_TBC_EVER" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant has ever smoked tobacco. 
 Phase 2 variable
@@ -1443,7 +1448,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LIVING_PARTNER" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="LIVING_PARTNER" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant is currently living with a spouse or a partner in a common household.
 Phase 2 variable 
@@ -1485,7 +1490,7 @@ Phase 2 variable 
           </category>
         </categories>
       </variable>
-      <variable name="SMK_CIG_EVER" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_CIG_EVER" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant has ever smoked cigarettes. 
 Phase 2 variable
@@ -1519,7 +1524,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="MEDI_LPD" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="MEDI_LPD" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Use of Lipid Lowering Medication (from categorical assessment item)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently uses lipid lowering medication. Self-reported by a question targeting the use of lipid lowering medication.
@@ -1557,7 +1562,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="RES_CNTRY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="RES_CNTRY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Country of Residence</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Country where the participant currently lives.
@@ -1609,7 +1614,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="PM_HIP_SIZE" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_HIP_SIZE" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Hip Circumference</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Measured distance around the hips. Unit: cm
@@ -1632,7 +1637,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="GENDER" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="GENDER" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Gender</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Gender of the participant
@@ -1670,7 +1675,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="AGE_DOB" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="AGE_DOB" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Birth Year</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Year of birth
@@ -1693,7 +1698,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="BRLOCA_CNTRY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="BRLOCA_CNTRY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Country of Birth</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Country where the participant was born reclassified into seven categories using United Nations macro geographical regions, and subregions. (http://unstats.un.org/unsd/methods/m49/m49regin.htm)
@@ -1765,7 +1770,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="PM_DIASTOLIC_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_DIASTOLIC_MEASURE" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Measured Diastolic Blood Pressure</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Measured diastolic blood pressure. Participant must be at rest when measurement is taken. Unit: mmHg
@@ -1788,7 +1793,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="RES_REG" valueType="text" entityType="Participant" unit="" mimeType="">
+      <variable name="RES_REG" valueType="text" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Region of Residence</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Region (province, state, territory, etc.) where the participant currently lives.
@@ -1810,7 +1815,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="SMK_TBC_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_TBC_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently smokes tobacco. Includes use of cigarettes, cigars, pipes and other tobacco products.
 </attribute>
@@ -1843,7 +1848,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_EVER" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_EVER" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant ever consumed alcohol.
 Phase 2 variable
@@ -1884,7 +1889,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_LIQUOR_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_LIQUOR_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Average number of drinks of liquor/spirits consumed by the participant per week.
 Phase 2 variable
@@ -1908,7 +1913,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_BEER_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_BEER_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Quantity of Beer Consumed (Phase 2)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Average number of beers consumed by the participant per week.
@@ -1932,7 +1937,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Use of Alcohol (Phase 2)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently consumes alcohol.
@@ -1973,7 +1978,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ADM_YRINT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ADM_YRINT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Year of Interview</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Year of the interview
@@ -1994,7 +1999,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="PM_SYSTOLIC_MEASURE" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_SYSTOLIC_MEASURE" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Measured Systolic Blood Pressure</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Measured systolic blood pressure. Participant must be at rest when measurement is taken. Unit: mmHg
@@ -2017,7 +2022,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="PM_WAIST_SIZE" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_WAIST_SIZE" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Waist Circumference</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Measured distance around the waist. Unit:cm
@@ -2040,7 +2045,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="MEDI_NAME_LPD_FIBR_NICO" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="MEDI_NAME_LPD_FIBR_NICO" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Current Use of Lipid Lowering Medications Fibrates and/or Nicotinic Acid Derivatives (from medication list)</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Indicator of whether the participant currently uses the lipid lowering medications fibrates and/or nicotinic acid derivatives.  Extracted from a list of medication using the following ATC Codes or equivalent in other classifications: C10AB and C10AD.
@@ -2072,7 +2077,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="ALC_WINE_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="ALC_WINE_CURRENT_QTY" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Average number of glasses of wine (including red and white wine) consumed by the participant per week.
 Phase 2 variable
@@ -2096,7 +2101,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LAB_HDL" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_HDL" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">HDL Cholesterol</attribute>
           <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Laboratory measurement of HDL cholesterol. Unit: mmol/L
@@ -2118,17 +2123,9 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="PM_BMI_CATEGORIAL" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="PM_BMI_CATEGORIAL" valueType="integer" entityType="Participant" unit="" mimeType="" referencedEntityType="" index="0">
         <attributes>
-          <attribute name="label" valueType="text" locale="en">Body Mass Index (categorical)</attribute>
-          <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Body Mass Index calculated using measured weight and and height (Mass in Kg / (Height in M)2) and stratified in 3 categories.
-</attribute>
-          <attribute name="comment" namespace="maelstrom" valueType="text" locale="en"></attribute>
-          <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Occurrence/Status/Named category</attribute>
-          <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Categorical ordered</attribute>
-          <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
-          <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
-          <attribute name="script" valueType="text">$(&apos;mica_demo.HOP-FNAC:PM_BMI_CONTINUOUS&apos;).group([0, 25, 30], [999]).map({
+          <attribute name="script" valueType="text">$this(&apos;PM_BMI_CONTINUOUS&apos;).group([0, 25, 30], [999]).map({
     &apos;0-25&apos;: &apos;1&apos;, 
     &apos;25-30&apos;: &apos;2&apos;, 
     &apos;30+&apos;: &apos;3&apos;, 
@@ -2137,6 +2134,15 @@ Phase 2 variable
   9,
   9)</attribute>
           <attribute name="status" namespace="maelstrom" valueType="text">complete</attribute>
+          <attribute name="label" valueType="text" locale="en">Body Mass Index (categorical)</attribute>
+          <attribute name="description" namespace="maelstrom" valueType="text" locale="en">Body Mass Index calculated using measured weight and and height (Mass in Kg / (Height in M)2) and stratified in 3 categories.
+</attribute>
+          <attribute name="comment" namespace="maelstrom" valueType="text" locale="en"></attribute>
+          <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Occurrence/Status/Named category</attribute>
+          <attribute name="measure" namespace="maelstrom" valueType="text" locale="en">Categorical ordered</attribute>
+          <attribute name="period" namespace="maelstrom" valueType="text" locale="en">Currently</attribute>
+          <attribute name="target" namespace="maelstrom" valueType="text" locale="en">Participant</attribute>
+          <attribute name="derivedFrom" namespace="opal" valueType="text">/datasource/ccc/table/HOP-FNAC/variable/PM_BMI_CATEGORIAL</attribute>
         </attributes>
         <categories>
           <category name="1">
@@ -2161,7 +2167,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="EDU_NUMYRS" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="EDU_NUMYRS" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Number of Years of Education (Phase 2)</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2182,7 +2188,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LAB_CR" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_CR" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Creatinin (Phase 2)</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2200,7 +2206,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LAB_GLUC_NONFASTING" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_GLUC_NONFASTING" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Non-Fasting Glucose</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2218,7 +2224,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LAB_hsCRP" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_hsCRP" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Inflammation Marker (hsCRP) Phase 2</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2235,7 +2241,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="LAB_mALB" valueType="decimal" entityType="Participant" unit="" mimeType="">
+      <variable name="LAB_mALB" valueType="decimal" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Microalbuminuria (Phase 2)</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2253,7 +2259,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="SMK_CIGAR_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_CIGAR_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="life_habits_behaviours" namespace="maelstrom" valueType="text" locale="en">Tobacco use</attribute>
           <attribute name="label" valueType="text" locale="en">Current Cigar Smoker (Phase 2)</attribute>
@@ -2285,7 +2291,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="SMK_PIPE_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="SMK_PIPE_CURRENT" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="life_habits_behaviours" namespace="maelstrom" valueType="text" locale="en">Tobacco use</attribute>
           <attribute name="label" valueType="text" locale="en">Current Pipe Smoker (Phase 2)</attribute>
@@ -2317,7 +2323,7 @@ Phase 2 variable
           </category>
         </categories>
       </variable>
-      <variable name="WH_LIVEBIRTHS" valueType="integer" entityType="Participant" unit="" mimeType="">
+      <variable name="WH_LIVEBIRTHS" valueType="integer" entityType="Participant" unit="" mimeType="" index="0">
         <attributes>
           <attribute name="label" valueType="text" locale="en">Number of Live Births Mothered (Phase 2)</attribute>
           <attribute name="essence" namespace="maelstrom" valueType="text" locale="en">Quantity/Frequency</attribute>
@@ -2340,6 +2346,6 @@ Phase 2 variable
       </variable>
     </variables>
   </variables>
-  <created valueType="datetime">2012-10-01T12:15:53.472-0400</created>
-  <updated valueType="datetime">2012-10-01T12:15:53.472-0400</updated>
+  <created valueType="datetime">2016-09-27T22:45:28.097+02</created>
+  <updated valueType="datetime">2016-09-27T22:51:56.543+02</updated>
 </org.obiba.magma.views.View>
