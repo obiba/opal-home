@@ -1,10 +1,10 @@
-id,VAR1
-1,"entity1-src3"
+id,VAR1,VAR2,VAR3
+1,"entity1-src3",,"entity1-src3-3"
 2,"entity2-src3"
 3,"entity3-src3"
 4,"entity4-src3"
 5,"entity5-src3"
-6,"entity6-src3"
-7,"entity7-src3"
+6,"entity6-src3","entity6-src3-2"
+7,"entity7-src3","entity7-src3-2"
 8,"entity8-src3"
-9,"entity9-src3"
+9,"entity9-src3",,"entity9-src3-3"

@@ -1,4 +1,4 @@
-id,VAR1
-1,"entity1-src1"
-2,"entity2-src1"
-3,"entity3-src1"
+id,VAR1,VAR2
+1,"entity1-src1","entity1-src1-2"
+2,"entity2-src1","entity1-src2-2"
+3,"entity3-src1","entity1-src3-2"
