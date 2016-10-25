@@ -2,10 +2,10 @@
 #
 # Global settings
 #
-url <- getOption("opal.url", "https://demo.obiba.org:8443")
+url <- getOption("opal.url", "https://opal-demo.obiba.org")
 username <- getOption("opal.username", "administrator")
 password <- getOption("opal.password", "password")
-datasource <- getOption("opal.datasource", "mica_demo")
+datasource <- getOption("opal.datasource", "FNAC")
 table <- getOption("opal.table", "FNAC")
 withStatistics <- getOption("opal.withStatistics", TRUE)
 withGraphs <- getOption("opal.withGraphs", TRUE)

@@ -33,7 +33,7 @@ Load the required libraries on client side and login in Opal (credentials and ou
 
 ```{r echo=FALSE,message=FALSE}
 library(opal)
-o <- opal.login('administrator', 'password', 'http://demo.obiba.org:8080')
+o <- opal.login('administrator', 'password', 'https://opal-demo.obiba.org')
 ```
 
 #### Data Assignment
@@ -41,7 +41,7 @@ o <- opal.login('administrator', 'password', 'http://demo.obiba.org:8080')
 Assign some variables into a data.frame with associated *D* symbol in R on Opal server side:
 
 ```{r}
-opal.assign(o,'D','mica_demo.FNAC',variables=c('SVUOSI','SUKUP','PITUUS','PAINO'))
+opal.assign(o,'D','FNAC.FNAC',variables=c('SVUOSI','SUKUP','PITUUS','PAINO'))
 ```
 
 Preview the assigned data.frame:
@@ -74,18 +74,6 @@ Plot *PITUUS* vs. *PAINO* with "lm" smoothing:
 
 ```{r message=FALSE}
 opal.execute(o,'qplot(PITUUS,PAINO, data=D) + geom_smooth(method="lm")')
-```
-
-#### File Download
-
-Any file can be extracted from Opal file system. Example of a file that is downloaded and read as a CSV file:
-
-```{r}
-lines <- opal.file(o,'/home/administrator/nasa/mars.csv')
-con <- textConnection(lines)
-data <- read.csv(con)
-close(con)
-data[,'Title']
 ```
 
 #### Opal Logout
