@@ -3,7 +3,7 @@
 ##
 projects=$(HOME)/projects
 version=2.9-SNAPSHOT
-magma_version=1.15-SNAPSHOT
+magma_version=1.16-SNAPSHOT
 #version=2.8-SNAPSHOT
 #magma_version=1.15-SNAPSHOT
 commons_version=1.8-SNAPSHOT
