@@ -7,12 +7,13 @@ magma_version=1.16-SNAPSHOT
 #version=2.8-SNAPSHOT
 #magma_version=1.15-SNAPSHOT
 commons_version=1.8-SNAPSHOT
-java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
+java_opts="-Xms1G -Xmx4G -XX:+UseG1GC"
 
 opal_project=${projects}/opal
 magma_project=${projects}/magma
 commons_project=${projects}/obiba-commons
 opal_home=${projects}/opal-home
+jennite_project=${projects}/jennite
 
 skipTests=false
 mvn_exec=mvn -Dmaven.test.skip=${skipTests}
@@ -178,6 +179,14 @@ commons-all:
 	cp obiba-shiro/target/obiba-shiro-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
 	cp obiba-shiro-web/target/obiba-shiro-web-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib && \
 	cp obiba-shiro-crowd/target/obiba-shiro-crowd-${commons_version}.jar ${opal_project}/opal-server/target/opal-server-${version}/lib
+
+#
+# Compile and install jennite
+#
+jennite:
+	cd ${jennite_project} && \
+	${mvn_exec} clean install && \
+	cp ${jennite_project}/jennite-vcf-store/target/*-dist.zip ${opal_home}/plugins/
 
 #
 # Tail Opal log file
