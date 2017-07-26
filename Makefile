@@ -186,9 +186,7 @@ commons-all:
 jennite:
 	cd ${jennite_project} && \
 	${mvn_exec} clean install && \
-	mkdir -p ${opal_home}/plugins/tmp && \
-	rm -rf ${opal_home}/plugins/* && \
-	unzip ${jennite_project}/jennite-vcf-store/target/*-dist.zip -d ${opal_home}/plugins/
+	cp ${jennite_project}/jennite-vcf-store/target/*-dist.zip ${opal_home}/plugins/
 
 #
 # Tail Opal log file
