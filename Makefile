@@ -189,6 +189,16 @@ jennite:
 	cp ${jennite_project}/jennite-vcf-store/target/*-dist.zip ${opal_home}/plugins/
 
 #
+# Compile and install opal-search-es plugin
+#
+search:
+	rm -rf ${opal_home}/plugins/opal-search-es-2.4* && \
+	mkdir -p ${opal_home}/plugins && \
+	cd ../opal-search-es && mvn clean install && \
+	cp target/opal-search-es-2.4-SNAPSHOT-dist.zip ${opal_home}/plugins
+#	cd ${opal_home}/plugins && unzip *zip && rm *zip
+
+#
 # Tail Opal log file
 #
 log:
