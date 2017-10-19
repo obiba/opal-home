@@ -6,7 +6,7 @@ version=2.10-SNAPSHOT
 magma_version=1.16-SNAPSHOT
 #version=2.8-SNAPSHOT
 #magma_version=1.15-SNAPSHOT
-commons_version=1.8-SNAPSHOT
+commons_version=1.9-SNAPSHOT
 java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
 opal_project=${projects}/opal
@@ -252,3 +252,22 @@ orientdb-console:
 	@echo "  connect plocal:$(opal_home)/data/orientdb/opal-config admin admin"
 	@echo
 	@cd work/orientdb-community-$(orientdb_version)/bin && ./console.sh
+
+#
+# GWT locales
+#
+locales:
+	cd ${opal_project}/opal-gwt-client && \
+	${mvn_exec} antrun:run
+
+#
+# Plugins
+#
+
+plugins: search-plugin
+
+vcf-plugin:
+	cd ../jennite && mvn clean install && cp jennite-vcf-store/target/jennite-vcf-store-*-dist.zip ../opal-home/plugins/
+
+search-plugin:
+	cd ../opal-search-es && mvn clean install && cp target/opal-search-es-*-dist.zip ../opal-home/plugins/
