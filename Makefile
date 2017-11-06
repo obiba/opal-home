@@ -2,7 +2,7 @@
 ## Makefile for Opal developpers
 ##
 projects=$(HOME)/projects
-version=2.10-SNAPSHOT
+version=2.11-SNAPSHOT
 magma_version=1.16-SNAPSHOT
 #version=2.9-SNAPSHOT
 #magma_version=1.15-SNAPSHOT
