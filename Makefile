@@ -3,9 +3,9 @@
 ##
 projects=$(HOME)/projects
 version=2.11-SNAPSHOT
-magma_version=1.16-SNAPSHOT
-#version=2.9-SNAPSHOT
-#magma_version=1.15-SNAPSHOT
+magma_version=1.17-SNAPSHOT
+#version=2.10-SNAPSHOT
+#magma_version=1.16-SNAPSHOT
 commons_version=1.9-SNAPSHOT
 java_opts="-Xms1G -Xmx4G -XX:MaxPermSize=256M -XX:+UseG1GC"
 
@@ -78,6 +78,8 @@ launch:
 #
 # Launch Opal in debug
 #
+debug: launch-debug
+
 launch-debug:
 	cd ${opal_home} && \
 	export OPAL_HOME=${opal_home} && \
