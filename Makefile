@@ -115,12 +115,19 @@ launch-R:
 	R --vanilla < ${R}
 
 #
+# Compile and install a Opal Python Client
+#
+python:
+	cd ${opal_project}/../opal-python-client && \
+	${mvn_exec} clean install
+
+#
 # Execute Python client
 #
 launch-python:
-	cd ${opal_project}/opal-python-client/target/opal-python/bin && \
+	cd ${opal_project}/../opal-python-client/target/opal-python/bin && \
 	chmod +x ./scripts/opal && \
-	export PYTHONPATH=${opal_project}/opal-python-client/target/opal-python/bin && \
+	export PYTHONPATH=${opal_project}/../opal-python-client/target/opal-python/bin && \
 	./scripts/opal ${args}
 
 #
